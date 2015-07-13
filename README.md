@@ -38,7 +38,7 @@ App Academy. By the end of this phase, users will be able to brose products. The
 be pushing the app to Heroku and ensuring that everything works before moving on
 to phase 2.
 
-[Details][phase-one]
+<!-- [Details][phase-one] -->
 
 ### Phase 2: Viewing Products and Product Details (~2 days)
 I will add API routes to serve data as JSON, then add Backbone
@@ -46,7 +46,7 @@ models and collections that fetch data from those routes. By the end of this
 phase, users will be able to browse products, view product details, view product reviews, leave product reviews, all
 inside a single Backbone app.
 
-[Details][phase-two]
+<!-- [Details][phase-two] -->
 
 ### Phase 3: Editing and Displaying Reviews (~2 days)
 I plan to use third-party libraries to add functionality to the `ReviewForm` and
@@ -55,7 +55,7 @@ I plan to use third-party libraries to add functionality to the `ReviewForm` and
 the `ReviewShow` view. I also plan to integrate Filepicker for file upload so
 users can add images to reviews.
 
-[Details][phase-three]
+<!-- [Details][phase-three] -->
 
 ### Phase 4: User Feeds (~1-2 days)
 I'll start by adding a `feed` route that uses the `current_user`'s
@@ -64,14 +64,14 @@ On the Backbone side, I'll make a `FeedShow` view whose `products`
 collection fetches from the new route.  Ultimately, this will be the page users
 see after logging in.
 
-[Details][phase-four]
+<!-- [Details][phase-four] -->
 
 ### Phase 5: Searching for Products (~2 days)
 I'll need to add `search` routes to both the Products controllers. On the
 Backbone side, there will be a `SearchResults` composite view that has `ProductsIndex` subviews.
 These views will use 'product' collections, but they will fetch from the new `search` routes.
 
-[Details][phase-five]
+<!-- [Details][phase-five] -->
 
 ### Bonus Features (TBD)
 - [ ] "Like" button and counter for posts
@@ -82,8 +82,8 @@ These views will use 'product' collections, but they will fetch from the new `se
 - [ ] User avatars
 - [ ] Typeahead search bar
 
-[phase-one]: ./docs/phases/phase1.md
+<!-- [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
+[phase-five]: ./docs/phases/phase5.md -->
