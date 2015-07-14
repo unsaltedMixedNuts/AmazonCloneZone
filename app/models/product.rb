@@ -15,7 +15,7 @@
 class Product < ActiveRecord::Base
     validates :name, :sales_price, :quantity, :dept_id, :brand_id, presence: true
 
-    has_many :pictures, as: :imageable
+    has_many :images, as: :imageable
 
     belongs_to :department,
       class_name: "Department",
