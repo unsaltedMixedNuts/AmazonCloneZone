@@ -29,13 +29,10 @@ Amazon Clone Zone is a clone of Amazon.com built on Rails and Backbone. Users ca
 - [ ] Search product reviews by keyword / keyphrases
 
 ## Design Docs
-* View Wireframes - TBD
+* [View Wireframes][views]
 * [DB schema][schema]
 
-
-<!-- * [View Wireframes][views]
-
-[views]: ./docs/views.md -->
+[views]: ./docs/views.md
 [schema]: ./docs/schema.md
 
 
@@ -82,7 +79,7 @@ These views will use 'product' collections, but they will fetch from the new `se
 
 <!-- [Details][phase-five] -->
 
-### Bonus Features (TBD)
+### Possible Bonus Features
 - [ ] Custom product urls
 - [ ] Pagination/infinite scroll
 - [ ] Activity history (e.g. votes, comments, questions, reviews, etc.)
