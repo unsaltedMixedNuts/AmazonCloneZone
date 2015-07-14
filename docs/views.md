@@ -29,12 +29,12 @@
 
 
 
-[root-page]: ./wireframes/1.jpg
-[product-show]: ./wireframes/2.jpg
-[new-session]: ./wireframes/3.jpg
-[shopping-cart]: ./wireframes/4.jpg
-[product-reviews]: ./wireframes/5.jpg
-[checkout]: ./wireframes/6.jpg
-[order-history]: ./wireframes/7.jpg
-[account-management]: ./wireframes/8.jpg
-[customer-service]: ./wireframes/9.jpg
+[root-page]: ./wireframes/1.JPG
+[product-show]: ./wireframes/2.JPG
+[new-session]: ./wireframes/3.JPG
+[shopping-cart]: ./wireframes/4.JPG
+[product-reviews]: ./wireframes/5.JPG
+[checkout]: ./wireframes/6.JPG
+[order-history]: ./wireframes/7.JPG
+[account-management]: ./wireframes/8.JPG
+[customer-service]: ./wireframes/9.JPG
