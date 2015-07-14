@@ -21,4 +21,9 @@ class Department < ActiveRecord::Base
       class_name: "Department",
       primary_key: :id,
       foreign_key: :parent_dept_id
+
+    has_many :products,
+      class_name: "Product",
+      primary_key: :id,
+      foreign_key: :dept_id
 end

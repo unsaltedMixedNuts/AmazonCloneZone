@@ -14,4 +14,14 @@
 
 class Product < ActiveRecord::Base
     validates :name, :sales_price, :quantity, :dept_id, :brand_id, presence: true
+
+    belongs_to :department,
+      class_name: "Department",
+      primary_key: :id,
+      foreign_key: :dept_id
+
+    belongs_to :brand,
+      class_name: "Brand",
+      primary_key: :id,
+      foreign_key: :brand_id
 end
