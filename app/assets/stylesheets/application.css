@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+h1 {
+  border: 5px solid black;
+}
+
+.navigation-header {
+  border: 5px solid mediumpurple;
+}
+
+.carousel-content {
+  border: 5px solid aqua;
+}
+
+.carousel-product-feed-1 {
+  border: 5px solid mediumpurple;
+}
+
+.carousel-product-feed-2 {
+  border: 5px solid aqua;
+}
+
+.sidebar {
+  border: 5px solid mediumpurple;
+}
