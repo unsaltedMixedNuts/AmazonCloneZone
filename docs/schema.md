@@ -24,7 +24,7 @@ column name    | data type | details
 ---------------|-----------|-----------------------
 id             | integer   | not null, primary key
 name           | string    | not null
-parent_dept_id | string    | not null, foreign key (references departments)
+parent_dept_id | string    | foreign key (references departments)
 
 
 ## descriptions
