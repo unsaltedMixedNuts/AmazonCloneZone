@@ -1,3 +1,4 @@
+<% unwanted_attrs = ["id", "created_at", "updated_at"] %>
 <h1>Products Index Page</h1>
 
 <div class="carousel-content">
@@ -6,6 +7,20 @@
 
 <div class="carousel-product-feed-1">
   <h2>Carousel Product Feed #1 Here</h2>
+  <ul>
+
+    <% @products.each do |product| %>
+
+      <% product.attributes.each do |attr| %>
+        <% unless unwanted_attrs.include?(attr[0]) %>
+          <li>
+            <%= attr[0].titleize %>: <%= attr[1] %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  </ul>
 </div>
 
 <div class="carousel-product-feed-2">
