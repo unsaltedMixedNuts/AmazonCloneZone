@@ -1,7 +1,7 @@
 # Amazon Clone Zone
 
-[Heroku link][heroku]
-[Custom domain link][domain name]
+* [Heroku link][heroku]
+* [Custom domain link][domain name]
 
 [heroku]: https://amazon-clone-zone.herokuapp.com/
 [domain name]: http://AmazonCloneZone.com
