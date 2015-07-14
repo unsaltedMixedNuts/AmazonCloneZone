@@ -25,15 +25,14 @@ Amazon Clone Zone is a clone of Amazon.com built on Rails and Backbone. Users ca
 
 ## Design Docs
 * View Wireframes - TBD
-* DB schema - TBD
-
-<!--
-* [View Wireframes][views]
 * [DB schema][schema]
 
-[views]: ./docs/views.md
+
+<!-- * [View Wireframes][views]
+
+[views]: ./docs/views.md -->
 [schema]: ./docs/schema.md
- -->
+
 
 ## Implementation Timeline
 
