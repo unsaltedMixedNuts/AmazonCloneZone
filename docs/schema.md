@@ -20,11 +20,11 @@ dept_id     | integer   | not null, foreign key (references departments)
 brand_id    | integer   | not null, foreign key (references brands)
 
 ## departments
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-parent_dept | string    | not null, foreign key (references departments)
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+name           | string    | not null
+parent_dept_id | string    | not null, foreign key (references departments)
 
 
 ## descriptions

@@ -1,8 +1,10 @@
 # Amazon Clone Zone
 
 [Heroku link][heroku]
+[Custom domain link][domain name]
 
-[heroku]: http://AmazonCloneZone.com
+[heroku]: https://amazon-clone-zone.herokuapp.com/
+[domain name]: http://AmazonCloneZone.com
 
 ## Minimum Viable Product
 Amazon Clone Zone is a clone of Amazon.com built on Rails and Backbone. Users can:
