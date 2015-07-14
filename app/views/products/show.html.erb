@@ -2,11 +2,17 @@
 
 <div class="product-image">
   <p>Product Image Goes Here</p>
-  <img src="http://ecx.images-amazon.com/images/I/41uTXEtgjqL._SX522_.jpg">
+  <% @product.images.each do |image| %>
+    <img src="<%= image.url %>">
+  <% end %>
 </div>
 
 <div class="product-description">
   <p>Product Description Goes Here</p>
+  <% @product.descriptions.each do |li| %>
+    <li><%= li.body %></li>
+  <% end %>
+
 </div>
 
 <div class="add-to-cart-form">

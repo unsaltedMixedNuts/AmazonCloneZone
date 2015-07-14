@@ -24,3 +24,29 @@ Brand.create(name: "Amazon")
 
 Image.create(url: "http://ecx.images-amazon.com/images/I/41uTXEtgjqL._SX522_.jpg", ord: nil, imageable_id: 1, imageable_type: "Product")
 Image.create(url: "https://images-na.ssl-images-amazon.com/images/I/61lD0SQk6wL._SL1600_.jpg", ord: nil, imageable_id: 1, imageable_type: "Review")
+
+Description.create(
+  body: "1080p HD programming, including iTunes movies and TV shows, Netflix, Vimeo, photos and more in HD",
+  ord: nil,
+  product_id: 1
+)
+Description.create(
+  body: "Access your purchased movies, TV shows, and music with iTunes Match right from iCloud",
+  ord: nil,
+  product_id: 1
+)
+Description.create(
+  body: "Stream video, games, and more from iOS devices using AirPlay; music, videos, and photos can also be streamed from PCs and Macs",
+  ord: nil,
+  product_id: 1
+)
+Description.create(
+  body: "HDMI and digital optical audio output; connects to network via Wireless-N or Ethernet",
+  ord: nil,
+  product_id: 1
+)
+Description.create(
+  body: "Apple TV is a registered trademark of Apple Inc.",
+  ord: nil,
+  product_id: 1
+)

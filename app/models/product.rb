@@ -17,6 +17,11 @@ class Product < ActiveRecord::Base
 
     has_many :images, as: :imageable
 
+    has_many :descriptions,
+      class_name: "Description",
+      primary_key: :id,
+      foreign_key: :product_id
+
     belongs_to :department,
       class_name: "Department",
       primary_key: :id,
