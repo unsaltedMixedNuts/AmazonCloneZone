@@ -21,3 +21,5 @@ Brand.create(name: "Apple")
 Brand.create(name: "Roku")
 Brand.create(name: "Google")
 Brand.create(name: "Amazon")
+
+ProductImage.create(url: "http://ecx.images-amazon.com/images/I/41uTXEtgjqL._SX522_.jpg", ord: 1, product_id: 1)

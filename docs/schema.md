@@ -43,13 +43,14 @@ body        | string    | not null
 ord         | integer   | not null
 product_id  | integer   | not null, foreign key (references products)
 
-## product_images
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-url         | string    | not null
-ord         | integer   | not null
-product_id  | integer   | not null, foreign key (references products)
+## images
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+url            | string    | not null
+ord            | integer   |
+imageable_id   | integer   | not null, foreign key (references products or reviews)
+imageable_type | integer   | not null, foreign key (type: "product" or "review")
 
 
 ## brands
@@ -66,14 +67,6 @@ title       | string    | not null
 body        | string    | not null
 stars_given | integer   | not null
 user_id     | integer   | not null, foreign key (references users)
-
-## customer_images
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-url         | string    | not null
-ord         | integer   | not null
-review_id   | integer   | not null, foreign key (references reviews)
 
 ## questions
 column name | data type | details
