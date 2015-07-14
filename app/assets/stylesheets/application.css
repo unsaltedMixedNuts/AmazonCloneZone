@@ -19,7 +19,11 @@ h1 {
 }
 
 .navigation-header {
-  border: 5px solid mediumpurple;
+  border: 5px solid deepskyblue;
+}
+
+.navigation-footer {
+  border: 5px solid deepskyblue;
 }
 
 .carousel-content {
