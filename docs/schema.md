@@ -126,8 +126,7 @@ user_id     | integer   | not null, foreign key (references users)
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-session_token   | string    | not null, unique
-user_id         | integer   | not null, foreign key (references users)
+user_id         | integer   | foreign key (references users)
 
 ## carted_products
 column name | data type | details
