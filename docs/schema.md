@@ -50,7 +50,7 @@ id             | integer   | not null, primary key
 url            | string    | not null
 ord            | integer   |
 imageable_id   | integer   | not null, foreign key (references products or reviews)
-imageable_type | integer   | not null, foreign key (type: "product" or "review")
+imageable_type | integer   | not null,(types: "product" or "review")
 
 
 ## brands
