@@ -13,17 +13,20 @@ Amazon Clone Zone is a clone of Amazon.com built on Rails and Backbone. Users ca
 
 - [ ] Create accounts
 - [ ] Create sessions (log in)
-- [ ] Browse products
+- [ ] Browse products and products' images
+- [ ] View product descriptions and specifications
+- [ ] View recently viewed items
 - [ ] Add products to cart
-- [ ] Checkout
-- [ ] Write and view customer reviews
-- [ ] Ask and answers questions to and from other customers
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for products by title
-- [ ] Search through customer reviews by keyword / keyphrases
+- [ ] Checkout and purchase products
+- [ ] View order history
+- [ ] Write and view product reviews
+- [ ] Attach images to their product reviews
+- [ ] Ask product questions to be answered by other customers
+- [ ] Answer product questions asked by other customers
+- [ ] Leave comments on reviews and answers
+- [ ] Upvote and downvote reviews, answers, and comments
+- [ ] Search for products by keyword / keyphrases
+- [ ] Search product reviews by keyword / keyphrases
 
 ## Design Docs
 * View Wireframes - TBD
@@ -40,7 +43,7 @@ Amazon Clone Zone is a clone of Amazon.com built on Rails and Backbone. Users ca
 
 ### Phase 1: User Authentication, Online Store Creation (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to brose products. The most important part of this phase will
+App Academy. By the end of this phase, users will be able to browse products. The most important part of this phase will
 be pushing the app to Heroku and ensuring that everything works before moving on
 to phase 2.
 
@@ -64,7 +67,7 @@ users can add images to reviews.
 <!-- [Details][phase-three] -->
 
 ### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
+I'll start by adding a `featured recommendations` route that uses the `current_user`'s
 `browsing habits` to serve a list of products inspired by the user's shopping trends.
 On the Backbone side, I'll make a `FeedShow` view whose `products`
 collection fetches from the new route.  Ultimately, this will be the page users
@@ -80,10 +83,9 @@ These views will use 'product' collections, but they will fetch from the new `se
 <!-- [Details][phase-five] -->
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
 - [ ] Custom product urls
 - [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
+- [ ] Activity history (e.g. votes, comments, questions, reviews, etc.)
 - [ ] Multiple sessions/session management
 - [ ] User avatars
 - [ ] Typeahead search bar
