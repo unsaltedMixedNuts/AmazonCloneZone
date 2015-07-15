@@ -1,12 +1,12 @@
 class CartsController < ApplicationController
-  def create
-    @cart = Cart.create
-    session[:cart_id] = @cart.id
-    redirect_to cart_url(@cart)
-  end
 
   def show
-    @cart = Cart.find(session[:cart_id])
+    if session[:cart_id]
+      @cart = Cart.find(session[:cart_id])
+    else
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
+    end
     render :show
   end
 end
