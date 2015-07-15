@@ -31,6 +31,20 @@
   <p>Quick Promo Goes Here</p>
 </div>
 
+<div class="questions-answers">
+  <p>Q and A Goes Here</p>
+  <% @product.questions.each do |q| %>
+    <li>
+      <%= q.body %><br>
+      <% q.answers.each do |a| %>
+        A: <%= a.body %>
+        <%= a.user.name %> answered on <%= a.created_at %><br>
+      <% end %>
+    </li><br>
+  <% end %>
+
+</div>
+
 <div class="product-reviews">
   <p>Product Reviews Go Here</p>
   <% @product.reviews.each do |li| %>
@@ -43,10 +57,6 @@
     <br>
   <% end %>
 
-</div>
-
-<div class="questions-answers">
-  <p>Q and A Goes Here</p>
 </div>
 
 <div class="recently-viewed-items">

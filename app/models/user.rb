@@ -18,4 +18,14 @@ class User < ActiveRecord::Base
       class_name: "Review",
       primary_key: :id,
       foreign_key: :user_id
+
+    has_many :questions,
+      class_name: "Question",
+      primary_key: :id,
+      foreign_key: :user_id
+
+    has_many :answers,
+      class_name: "Answer",
+      primary_key: :id,
+      foreign_key: :user_id
 end

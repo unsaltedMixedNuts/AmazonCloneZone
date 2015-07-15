@@ -32,6 +32,11 @@ class Product < ActiveRecord::Base
       primary_key: :id,
       foreign_key: :product_id
 
+    has_many :questions,
+      class_name: "Question",
+      primary_key: :id,
+      foreign_key: :product_id
+
     belongs_to :department,
       class_name: "Department",
       primary_key: :id,

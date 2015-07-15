@@ -128,6 +128,53 @@ User.create(
   session_token: "TBD"
 )
 
+Question.create(
+  body:"Is it compatible with Ipad 2?",
+  product_id: 1,
+  user_id: 1
+)
+
+Question.create(
+  body:"Is this the newest version?",
+  product_id: 1,
+  user_id: 1
+)
+
+Question.create(
+  body:"Does this stream movies from Amazon Prime?",
+  product_id: 1,
+  user_id: 1
+)
+
+Question.create(
+  body:"Wireless?",
+  product_id: 1,
+  user_id: 1
+)
+
+Answer.create(
+  body:"Yes.  It works great with the iPad2.",
+  question_id: 1,
+  user_id: 1
+)
+
+Answer.create(
+  body:"I just received mine in the mail today.  This is the A1469 (revision A), which is the current version of the Apple TV.",
+  question_id: 2,
+  user_id: 1
+)
+
+Answer.create(
+  body:"No.  It does not stream from Amazon Prime but you can use your iPad to stream it on TV.  That is how we watched the series Transparent.  Quality was good.  No freezing.  So good.",
+  question_id: 3,
+  user_id: 1
+)
+
+Answer.create(
+  body:"Operational use is wireless but you must HDMI it to the TV and until the new operating system update for apple coming in the fall you must be connected to a network. After the new operating software update you will be able to go peer to peer with no network. Hope this helps.",
+  question_id: 4,
+  user_id: 1
+)
 
 # Review objects are created at the very end of this seeds.rb file.
 
