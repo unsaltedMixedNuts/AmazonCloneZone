@@ -13,6 +13,11 @@
 
 class User < ActiveRecord::Base
     validates :email, :name, :password_digest, :session_token, presence: true
+    validates :password, length: { minimum: 5, allow_nil: true }
+
+    attr_reader :password
+
+    after_initialize :ensure_session_token, :ensure_email_downcase
 
     has_many :reviews,
       class_name: "Review",
@@ -28,4 +33,35 @@ class User < ActiveRecord::Base
       class_name: "Answer",
       primary_key: :id,
       foreign_key: :user_id
+
+    def User.find_by_credentials(email, password)
+      user = User.find_by(email: email)
+      return user if user && user.is_password?(password)
+      return nil
+    end
+
+    def password=(password)
+      @password = password
+      self.password_digest = BCrypt::Password.create(password)
+    end
+
+    def is_password?(password)
+      BCrypt::Password.new(self.password_digest).is_password?(password)
+    end
+
+    def reset_session_token!
+      self.session_token = SecureRandom.urlsafe_base64(16)
+      self.save
+      self.session_token
+    end
+
+    private
+    def ensure_session_token
+      self.session_token ||= SecureRandom.urlsafe_base64(16)
+    end
+
+    def ensure_email_downcase
+      self.email = self.email.downcase if self.email
+    end
+
 end

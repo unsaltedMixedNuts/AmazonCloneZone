@@ -1,0 +1,42 @@
+<%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+
+<form action="<%= users_url %>" method="post">
+  <%= form_auth_token %>
+
+  <h2>Registration</h2>
+  <h3>New to AmazonCloneZone.com?  Register Below.</h3>
+  <label>
+    My name is:
+    <input type="text" name="user[name]" value="<%= @user.name %>">
+  </label>
+  <br>
+
+  <label>
+    My e-mail address is:
+    <input type="text" name="user[email]">
+  </label>
+  <br>
+
+  <label>
+    Type it again:
+    <input type="text" name="user[email_2]">
+  <label>
+  <br>
+
+<h3>Protect your information with a password</h3>
+<p>This will be your only AmazonCloneZone.com password.</p>
+  <label>
+    Enter a new password:
+    <input type="password" name="user[password]">
+  </label>
+  <br>
+
+  <label>
+    Type it again:
+    <input type="password" name="user[password_2]">
+  </label>
+  <br>
+  <button>Create account</button>
+
+  <p>By creating an account, you agree to AmazonCloneZone.com's Conditions of Use and Privacy Notice, which both have not been written yet.</p>
+</form>

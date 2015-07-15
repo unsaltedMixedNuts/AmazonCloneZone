@@ -107,26 +107,24 @@ Specification.create(
   product_id: 1
 )
 
-User.create(
-  email: "Mel@AmazonCloneZone.com",
+(mel = User.new(
+  email: "Mel@amazonclonezone.com",
   name: "Mel",
-  password_digest: "TBD",
-  session_token: "TBD"
-)
+)).password="password"
+mel.save
 
-User.create(
+(ghazi = User.new(
   email: "ghazi@example.com",
   name: "Ghazi",
-  password_digest: "TBD",
-  session_token: "TBD"
-)
+)).password="password"
+ghazi.save
 
-User.create(
+(william = User.new(
   email: "william@example.com",
   name: "William B. Partridge",
-  password_digest: "TBD",
   session_token: "TBD"
-)
+)).password="password"
+william.save
 
 Question.create(
   body:"Is it compatible with Ipad 2?",

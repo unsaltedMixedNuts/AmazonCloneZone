@@ -1,0 +1,25 @@
+<%= flash[:errors].html_safe if flash[:errors] %>
+
+<form action="<%= session_url %>" method="post">
+  <%= form_auth_token %>
+
+  <h2>Sign In</h2>
+  <h3>What is your e-mail and password?</h3>
+
+  <label>
+    Email:
+    <input type="text" name="user[email]" value="<%= @user.name %>">
+  </label>
+  <br>
+
+  <label>
+    Enter a new password:
+    <input type="password" name="user[password]">
+  </label>
+  <br>
+
+  <button>Sign in using our secure server</button>
+</form>
+
+<h4>Sign In Help</h4>
+<p>Forgot your password?  <a href="#">Get password help.</a></p>
