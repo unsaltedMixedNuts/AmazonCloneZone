@@ -134,6 +134,7 @@ user_id         | integer   | foreign key (references users)
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+quantity    | integer   | not null
 ord         | integer   | not null
 cart_id     | integer   | not null, foreign key (references shopping_carts)
 product_id  | integer   | not null, foreign key (references products)
