@@ -17,14 +17,35 @@ class ApplicationController < ActionController::Base
   def sign_in(user)
     @current_user = user
     session[:session_token] = user.reset_session_token!
+    merge_carts(current_user) if session[:cart_id]
   end
 
   def sign_out
     current_user.try(:reset_session_token!)
     session[:session_token] = nil
+    session[:cart_id] = nil
   end
 
   def require_sign_in
     redirect_to new_session_url unless signed_in?
+  end
+
+  def merge_carts(current_user)
+    og_cart = Cart.find(session[:cart_id])
+    new_cart = Cart.find(current_user.cart.id)
+
+    og_cart.items.each do |item|
+      if new_cart.products.include?(item.product)
+        new_cart_item = CartedItem.where("cart_id = ? AND product_id = ?", new_cart.id, item.product_id).first
+        higher_qty = [item.quantity, new_cart_item.quantity].max
+        new_cart_item.quantity = higher_qty
+      else
+        item.cart_id = new_cart.id
+        new_cart.items << item
+      end
+    end
+
+    og_cart.destroy
+    session[:cart_id] = nil
   end
 end

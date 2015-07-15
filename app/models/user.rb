@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
     attr_reader :password
 
-    after_initialize :ensure_session_token, :ensure_email_downcase
+    after_initialize :ensure_session_token, :ensure_email_downcase, :ensure_shopping_cart
 
     has_many :carted_items, through: :cart, source: :items
 
@@ -74,6 +74,10 @@ class User < ActiveRecord::Base
 
     def ensure_email_downcase
       self.email = self.email.downcase if self.email
+    end
+
+    def ensure_shopping_cart
+      self.cart = Cart.new(user_id: self.id) unless self.cart
     end
 
 end
