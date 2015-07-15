@@ -11,10 +11,10 @@ Amazon Clone Zone is a clone of Amazon.com built on Rails and Backbone. Users ca
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Browse products and products' images
-- [ ] View product descriptions and specifications
+- [x] Create accounts
+- [x] Create sessions (log in)
+- [x] Browse products and products' images
+- [x] View product descriptions and specifications
 - [ ] View recently viewed items
 - [ ] Add products to cart
 - [ ] Checkout and purchase products

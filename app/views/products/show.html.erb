@@ -17,7 +17,7 @@
 
 <div class="add-to-cart-form">
   <p>Add To Cart Form Goes Here</p>
-  <form action="<% carted_items_url %>" method="post">
+  <form action="<%= carted_items_url %>" method="post">
     <%= form_auth_token %>
     <input type="hidden" name="item[product_id]" value="<%= @product.id %>">
 

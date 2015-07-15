@@ -6,14 +6,15 @@
 #  ord        :integer
 #  cart_id    :integer          not null
 #  product_id :integer          not null
-#  user_id    :integer          not null
 #  created_at :datetime
 #  updated_at :datetime
 #  quantity   :integer          not null
 #
 
 class CartedItem < ActiveRecord::Base
-    validates :cart_id, :product_id, :user_id, presence: true
+    validates :cart_id, :product_id, presence: true
+
+    has_many :users, through: :cart, source: :user
 
     belongs_to :cart,
       class_name: "Cart",

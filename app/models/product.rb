@@ -16,6 +16,7 @@ class Product < ActiveRecord::Base
     validates :name, :sales_price, :quantity, :dept_id, :brand_id, presence: true
 
     has_many :images, as: :imageable
+    has_many :carts, through: :carted_items, source: :cart
 
     has_many :carted_items,
       class_name: "CartedItem",

@@ -2,6 +2,6 @@
 <h2>Cart.id = <%= @cart.id %></h2>
 <ul>
   <% @cart.items.each do |item| %>
-    <li>Item: <%= item.name %> Price: <%= item.price %> Quantity: <%= item.quantity %></li>
+    <a href="<%= product_url(item.product_id) %>"><li>Item: <%= item.product.name %> Price: <%= item.product.sales_price %> Quantity: <%= item.quantity %></li></a>
   <% end %>
 </ul>

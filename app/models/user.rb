@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 
     after_initialize :ensure_session_token, :ensure_email_downcase
 
+    has_many :carted_items, through: :cart, source: :items
+
     has_one :cart,
       class_name: "Cart",
       primary_key: :id,
