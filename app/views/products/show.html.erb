@@ -21,6 +21,10 @@
 
 <div class="product-details">
   <p>Product Details Go Here</p>
+  <% @product.specifications.each do |li| %>
+    <li><%= li.title.titleize %>: <%= li.body %></li>
+  <% end %>
+
 </div>
 
 <div class="quick-promo">

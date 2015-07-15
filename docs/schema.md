@@ -39,8 +39,9 @@ product_id  | integer   | not null, foreign key (references products)
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+title       | string    | not null
 body        | string    | not null
-ord         | integer   | not null
+ord         | integer   |
 product_id  | integer   | not null, foreign key (references products)
 
 ## images

@@ -50,3 +50,59 @@ Description.create(
   ord: nil,
   product_id: 1
 )
+
+Specification.create(
+  title: "Brand Name",
+  body: "Apple",
+  ord: nil,
+  product_id: 1
+)
+
+Specification.create(
+  title: "Item Weight",
+  body: "9.6 ounces",
+  ord: nil,
+  product_id: 1
+)
+
+Specification.create(
+  title: "Product Dimensions",
+  body: "3.9 x 3.9 x 0.9 inches",
+  ord: nil,
+  product_id: 1
+)
+
+Specification.create(
+  title: "Item model number",
+  body: "MD199LL/A",
+  ord: nil,
+  product_id: 1
+)
+
+Specification.create(
+  title: "Color Name",
+  body: "Black",
+  ord: nil,
+  product_id: 1
+)
+
+Specification.create(
+  title: "Shipping Weight",
+  body: "1.1 pounds",
+  ord: nil,
+  product_id: 1
+)
+
+Specification.create(
+  title: "Date First Available",
+  body: "March 7, 2012",
+  ord: nil,
+  product_id: 1
+)
+
+Specification.create(
+  title: "Customer Reviews",
+  body: "6,551",
+  ord: nil,
+  product_id: 1
+)
