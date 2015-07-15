@@ -17,6 +17,18 @@
 
 <div class="add-to-cart-form">
   <p>Add To Cart Form Goes Here</p>
+  <form action="<% carts_url %>" method="post">
+    <%= form_auth_token %>
+    <label>
+      Quantity
+      <br>
+      <select>
+        <option value="1">1</option>
+      </select>
+    </label>
+    <br>
+    <button>Add to Cart</button>
+  </form>
 </div>
 
 <div class="product-details">

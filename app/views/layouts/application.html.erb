@@ -10,6 +10,7 @@
 
   <!-- HEADER NAVIGATION GOES HERE -->
   <div class="navigation-header">
+    | current_user: <%= current_user %> | signed_in?: <%= signed_in? %> |<br><br>
     <% if signed_in? %>
       Signed in as: <%= current_user.name.titleize %>
       <form action="<%= session_url %>" method="post">
@@ -20,6 +21,14 @@
     <% else %>
       <a href="<%= new_session_url %>">Sign In</a>
       <a href="<%= new_user_url %>">Sign Up</a>
+      <% if signed_in? %>
+        <a href="<%= cart_url(current_user.cart.id) %>">Shopping Cart</a>
+      <% else %>
+        <form action="<%= carts_url %>" method="post">
+          <%= form_auth_token %>
+          <button>Shopping Cart</button>
+        </form>
+      <% end %>
     <% end %>
     <br>
     <a href="<%= root_url %>"><img src="/assets/amazon_clone_zone_logo.png"></a>

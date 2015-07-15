@@ -19,6 +19,11 @@ class User < ActiveRecord::Base
 
     after_initialize :ensure_session_token, :ensure_email_downcase
 
+    has_one :cart,
+      class_name: "Cart",
+      primary_key: :id,
+      foreign_key: :user_id
+
     has_many :reviews,
       class_name: "Review",
       primary_key: :id,
