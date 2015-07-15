@@ -10,7 +10,8 @@
 
   <!-- HEADER NAVIGATION GOES HERE -->
   <div class="navigation-header">
-    | current_user: <%= current_user %> | signed_in?: <%= signed_in? %> |<br><br>
+    <!-- | current_user: <%= current_user %> | signed_in?: <%= signed_in? %> |<br><br> -->
+    <a href="<%= root_url %>">Home</a>
     <% if signed_in? %>
       Signed in as: <%= current_user.name.titleize %>
       <form action="<%= session_url %>" method="post">
