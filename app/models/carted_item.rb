@@ -15,7 +15,7 @@ class CartedItem < ActiveRecord::Base
     validates :cart_id, :product_id, :user_id, presence: true
 
     belongs_to :cart,
-      class_name: "Cart"
+      class_name: "Cart",
       primary_key: :id,
       foreign_key: :cart_id
 
