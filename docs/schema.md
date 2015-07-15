@@ -130,7 +130,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 user_id         | integer   | foreign key (references users)
 
-## carted_products
+## carted_items
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key

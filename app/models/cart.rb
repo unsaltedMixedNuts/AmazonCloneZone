@@ -13,4 +13,9 @@ class Cart < ActiveRecord::Base
     class_name: "User",
     primary_key: :id,
     foreign_key: :user_id
+
+  has_many :carted_items,
+    class_name: "CartedItem"
+    primary_key: :id,
+    foreign_key: :cart_id
 end
