@@ -66,7 +66,8 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null
 body        | string    | not null
-stars_given | integer   | not null
+stars       | integer   | not null
+product_id  | integer   | not null, foreign key (references products)
 user_id     | integer   | not null, foreign key (references users)
 
 ## questions
