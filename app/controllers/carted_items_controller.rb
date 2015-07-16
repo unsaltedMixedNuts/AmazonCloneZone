@@ -15,7 +15,7 @@ class CartedItemsController < ApplicationController
   end
 
   def destroy
-    @item = CartedItem.where("cart_id = ? AND product_id = ?", session[:cart_id], params[:item][:product_id])
+    @item = CartedItem.find(params[:id])
     @item.destroy
     redirect_to cart_url
   end

@@ -2,6 +2,17 @@
 <h2>Cart.id = <%= @cart.id %></h2>
 <ul>
   <% @cart.items.each do |item| %>
-    <a href="<%= product_url(item.product_id) %>"><li>Item: <%= item.product.name %> Price: <%= item.product.sales_price %> Quantity: <%= item.quantity %></li></a>
+    <li>
+      <a href="<%= product_url(item.product_id) %>">
+        Item: <%= item.product.name %> Price: <%= item.product.sales_price %> Quantity: <%= item.quantity %>
+      </a>
+
+      <form action="<%= carted_item_url(item.id) %>" method="post">
+        <%= form_auth_token %>
+        <input type="hidden" name="_method" value="delete">
+        <button>Delete</button>
+      </form>
+    </li>
+    <br>
   <% end %>
 </ul>
