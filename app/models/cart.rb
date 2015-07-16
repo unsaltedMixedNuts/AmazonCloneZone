@@ -21,4 +21,23 @@ class Cart < ActiveRecord::Base
     class_name: "CartedItem",
     primary_key: :id,
     foreign_key: :cart_id
+
+  def num_items
+    num_items = 0
+    self.items.each do |item|
+      num_items += item.quantity
+    end
+
+    num_items
+  end
+
+  def subtotal
+    subtotal = 0
+    self.items.each do |item|
+      subtotal += item.quantity * item.product.sales_price
+    end
+
+    return subtotal
+  end
+
 end

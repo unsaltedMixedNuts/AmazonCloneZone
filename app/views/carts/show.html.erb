@@ -25,13 +25,7 @@
     <% end %>
   </ul>
 
-  <% subtotal, num_items = 0, 0 %>
-  <% @cart.items.each do |item| %>
-    <% subtotal += item.quantity * item.product.sales_price %>
-    <% num_items += item.quantity %>
-  <% end %>
-
-  <h3>Subtotal (<%= num_items %> <%= num_items == 1 ? "item" : "items" %>): $<%= subtotal %></h3>
+  <h3>Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= @cart.subtotal %></h3>
 </div>
 
 <div class="buy-it-again">
