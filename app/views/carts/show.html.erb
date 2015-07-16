@@ -1,5 +1,4 @@
-<h1>Shopping Cart</h1>
-<h2>Cart.id = <%= @cart.id %></h2>
+<h1>Shopping Cart # <%= @cart.id %></h1>
 <ul>
   <% @cart.items.each do |item| %>
     <li>
@@ -16,3 +15,11 @@
     <br>
   <% end %>
 </ul>
+
+<% subtotal, num_items = 0, 0 %>
+<% @cart.items.each do |item| %>
+  <% subtotal += item.quantity * item.product.sales_price %>
+  <% num_items += item.quantity %>
+<% end %>
+
+<h3>Subtotal (<%= num_items %> <%= num_items == 1 ? "item" : "items" %>): $<%= subtotal %></h3>

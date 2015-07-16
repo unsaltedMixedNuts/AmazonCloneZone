@@ -15,8 +15,8 @@ Amazon Clone Zone is a clone of Amazon.com built on Rails and Backbone. Users ca
 - [x] Create sessions (log in)
 - [x] Browse products and products' images
 - [x] View product descriptions and specifications
+- [x] Add products to cart
 - [ ] View recently viewed items
-- [ ] Add products to cart
 - [ ] Checkout and purchase products
 - [ ] View order history
 - [ ] Write and view product reviews
