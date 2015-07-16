@@ -1,0 +1,17 @@
+<% exclusions = ["id", "user_id", "full_name", "order_number", "created_at", "updated_at"] %>
+<h1>Your Orders</h1>
+<ul>
+  <% @orders.each do |order| %>
+    <li>
+      <strong><a href="<%= order_url(order) %>">Order Number:<%= order.order_number %><br></a></strong>
+      Order Date:<%= order.created_at.strftime "%B %e, %Y" %><br>
+      Shipped To: <%= order.full_name %><br>
+      <% order.attributes.each do |attr| %>
+        <% if !exclusions.include?(attr[0]) %>
+          <%= attr[0].titleize %>: <%= attr[1] %><br>
+        <% end %>
+      <% end %>
+    </li>
+    <br><br>
+  <% end %>
+</ul>

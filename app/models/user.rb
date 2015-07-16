@@ -26,6 +26,11 @@ class User < ActiveRecord::Base
       primary_key: :id,
       foreign_key: :user_id
 
+    has_many :orders,
+      class_name: "Order",
+      primary_key: :id,
+      foreign_key: :user_id
+
     has_many :carted_items,
       class_name: "CartedItem",
       primary_key: :id,

@@ -140,13 +140,24 @@ cart_id     | integer   | not null, foreign key (references shopping_carts)
 product_id  | integer   | not null, foreign key (references products)
 user_id     | integer   | not null, foreign key (references users)
 
+## ordered_items
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+quantity    | integer   | not null
+ord         | integer   | not null
+order_id     | integer   | not null, foreign key (references shopping_carts)
+product_id  | integer   | not null, foreign key (references products)
+
 ## orders
 column name       | data type | details
 ------------------|-----------|-----------------------
 id                | integer   | not null, primary key
 order_number      | string    | not null, unique
 payment_method    | string    | not null
-shipping_address  | string    | not null
+full_name         | string    | not null
+address_line_1    | string    | not null
+address_line_2    | string    | not null
 user_id           | integer   | not null, foreign key (references users)
 
 ## recently_viewed_items

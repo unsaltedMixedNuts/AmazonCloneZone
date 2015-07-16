@@ -1,0 +1,10 @@
+<h2><%= flash[:notice] if flash[:notice] %></h2>
+<h3>Estimated Delivery: <%= 2.days.since(@order.created_at).strftime "%B %e, %Y" %></h3>
+<h1>Order # <%= @order.order_number %></h1>
+<ul>
+  <% @order.attributes.each do |attr| %>
+  <li>
+    <%= attr[0].titleize %>: <%= attr[1] %><br>
+  </li>
+  <% end %>
+</ul>
