@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
   def sign_in(user)
     @current_user = user
     session[:session_token] = user.reset_session_token!
-    debugger
     merge_carts(current_user) if session[:cart_id]
   end
 
@@ -31,6 +30,11 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless signed_in?
   end
 
+  def get_or_set_cart
+    @cart = signed_in? ? Cart.find(current_user.cart.id) : Cart.create
+    session[:cart_id] = @cart.id
+  end
+
   def merge_carts(current_user)
     og_cart = Cart.find(session[:cart_id])
     new_cart = Cart.find(current_user.cart.id)
@@ -40,9 +44,11 @@ class ApplicationController < ActionController::Base
         new_cart_item = CartedItem.where("cart_id = ? AND product_id = ?", new_cart.id, item.product_id).first
         higher_qty = [item.quantity, new_cart_item.quantity].max
         new_cart_item.quantity = higher_qty
+        new_cart_item.save
       else
         item.cart_id = new_cart.id
         new_cart.items << item
+        new_cart.save
       end
     end
 

@@ -1,7 +1,7 @@
 class CartedItemsController < ApplicationController
   def create
-    cart = Cart.find(session[:cart_id])
-    if cart.products.include?(Product.find(params[:item][:product_id]))
+    get_or_set_cart
+    if @cart.products.include?(Product.find(params[:item][:product_id]))
       @item = CartedItem.where("cart_id = ? AND product_id = ?", session[:cart_id], params[:item][:product_id]).first
       @item.quantity += params[:item][:quantity].to_i
       @item.save
