@@ -16,7 +16,6 @@ Amazon Clone Zone is a clone of Amazon.com built on Rails and Backbone. Users ca
 - [x] Browse products and products' images
 - [x] View product descriptions and specifications
 - [x] Add products to cart
-- [ ] View recently viewed items
 - [ ] Checkout and purchase products
 - [ ] View order history
 - [ ] Write and view product reviews
@@ -27,6 +26,7 @@ Amazon Clone Zone is a clone of Amazon.com built on Rails and Backbone. Users ca
 - [ ] Upvote and downvote reviews, answers, and comments
 - [ ] Search for products by keyword / keyphrases
 - [ ] Search product reviews by keyword / keyphrases
+- [ ] View recently viewed items
 
 ## Design Docs
 * [View Wireframes][views]
