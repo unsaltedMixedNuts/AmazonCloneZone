@@ -22,6 +22,14 @@ div {
   border: 5px solid darkgreen;
 }
 
+.product-image img {
+  width: 25%;
+}
+
+.navigation-header img {
+  width: 28%;
+}
+
 .navigation-header {
   border: 5px solid deepskyblue;
 }

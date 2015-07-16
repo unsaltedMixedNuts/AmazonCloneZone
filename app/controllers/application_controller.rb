@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   def sign_in(user)
     @current_user = user
     session[:session_token] = user.reset_session_token!
+    debugger
     merge_carts(current_user) if session[:cart_id]
   end
 
