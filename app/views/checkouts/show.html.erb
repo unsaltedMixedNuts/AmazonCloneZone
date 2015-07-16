@@ -1,0 +1,93 @@
+<h1>Checkout (<%= pluralize(@cart.num_items, 'item') %>)</h1>
+<div class="shipping-info">
+  <p>Shipping Info Goes Here</p>
+  <form>
+    <label>
+      Full Name:
+      <input type="text">
+    </label>
+    <br>
+
+    <label>
+      Street Address and Apartment:
+      <input type="text">
+    </label>
+    <br>
+
+    <label>
+      City, State, and Zip
+      <input type="text">
+    </label>
+    <br>
+  </form>
+</div>
+
+<div class="payment-info">
+  <p>Payment Info Goes Here</p>
+  <p>Amazon Clone Zone accepts all major credit and debit cards.</p>
+  <form>
+    <label>
+      Card number
+      <input type="text">
+    </label>
+    <br>
+
+    <label>
+      Name on card
+      <input type="text">
+    </label>
+    <br>
+
+    <label>
+      Expiration date
+      <select>
+        <% (1..12).each do |month| %>
+          <option><%= month %></option>
+        <% end %>
+      </select>
+      <select>
+        <% (2015..2035).each do |year| %>
+          <option><%= year %></option>
+        <% end %>
+      </select>
+    </label>
+    <br>
+  </form>
+</div>
+
+<div class="review">
+  <p>Review Items and Shipping Goes Here</p>
+  <h3>Estimated Delivery: <%= 2.days.since.strftime "%B %e, %Y" %></h3>
+
+  <ul>
+    <% @cart.items.each do |item| %>
+      <li>
+        <a href="<%= product_url(item.product_id) %>">
+          Item: <%= item.product.name %> Price: <%= item.product.sales_price %> Quantity: <%= item.quantity %>
+        </a>
+
+      </li>
+      <br>
+    <% end %>
+  </ul>
+
+  <h3>Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= @cart.subtotal %></h3>
+
+  <a href="">Place your order</a>
+
+</div>
+
+<div class="place-order-summary-sidebar">
+  <a href="">Place your order</a>
+  <p>Order Summary Goes Here</p>
+  <h3>Order Summary</h3>
+  <p>Items: $<%= @cart.subtotal %></p>
+  <p>Shipping and handling: $0.00</p>
+  <p>Total before tax: $<%= @cart.subtotal %></p>
+  <p>Estimated tax to be collected: $0.00</p>
+  <h4>Order total: $<%= @cart.subtotal %></h4>
+</div>
+
+<div class="fine-print">
+  <p>Fineprint Goes Here</p>
+</div>

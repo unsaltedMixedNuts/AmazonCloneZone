@@ -4,6 +4,9 @@
 
 <div class="checkout">
   <p>Proceed To Checkout Goes Here</p>
+  <h3>Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= @cart.subtotal %></h3>
+  <p><a href="<%= checkout_url %>">Proceed to checkout</a></p>
+
 </div>
 
 <div class="shopping-cart-items">

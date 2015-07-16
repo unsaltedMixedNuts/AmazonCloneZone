@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resource :cart, only: [:show]
+  resource :checkout, only: [:show]
+  resource :confirmation, only: [:show]
 
   resources :users, only: [:new, :create]
   resources :products, only: [:index, :show]
