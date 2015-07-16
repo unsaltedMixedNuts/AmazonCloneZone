@@ -1,25 +1,43 @@
-<h1>Shopping Cart # <%= @cart.id %></h1>
-<ul>
+<div class="advertisement">
+  <p>Clickable Advertisement Goes Here</p>
+</div>
+
+<div class="checkout">
+  <p>Proceed To Checkout Goes Here</p>
+</div>
+
+<div class="shopping-cart-items">
+  <h1>Shopping Cart # <%= @cart.id %></h1>
+  <ul>
+    <% @cart.items.each do |item| %>
+      <li>
+        <a href="<%= product_url(item.product_id) %>">
+          Item: <%= item.product.name %> Price: <%= item.product.sales_price %> Quantity: <%= item.quantity %>
+        </a>
+
+        <form action="<%= carted_item_url(item.id) %>" method="post">
+          <%= form_auth_token %>
+          <input type="hidden" name="_method" value="delete">
+          <button>Delete</button>
+        </form>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+
+  <% subtotal, num_items = 0, 0 %>
   <% @cart.items.each do |item| %>
-    <li>
-      <a href="<%= product_url(item.product_id) %>">
-        Item: <%= item.product.name %> Price: <%= item.product.sales_price %> Quantity: <%= item.quantity %>
-      </a>
-
-      <form action="<%= carted_item_url(item.id) %>" method="post">
-        <%= form_auth_token %>
-        <input type="hidden" name="_method" value="delete">
-        <button>Delete</button>
-      </form>
-    </li>
-    <br>
+    <% subtotal += item.quantity * item.product.sales_price %>
+    <% num_items += item.quantity %>
   <% end %>
-</ul>
 
-<% subtotal, num_items = 0, 0 %>
-<% @cart.items.each do |item| %>
-  <% subtotal += item.quantity * item.product.sales_price %>
-  <% num_items += item.quantity %>
-<% end %>
+  <h3>Subtotal (<%= num_items %> <%= num_items == 1 ? "item" : "items" %>): $<%= subtotal %></h3>
+</div>
 
-<h3>Subtotal (<%= num_items %> <%= num_items == 1 ? "item" : "items" %>): $<%= subtotal %></h3>
+<div class="buy-it-again">
+  <p>Buy It Again Goes Here</p>
+</div>
+
+<div class="recently-viewed-items">
+  <p>Recently Viewed Items Goes Here</p>
+</div>
