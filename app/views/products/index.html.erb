@@ -1,29 +1,62 @@
-<% unwanted_attrs = ["id", "created_at", "updated_at"] %>
-<h1>Products Index Page</h1>
+<section class="carousel-content">
+  <a href="<%= product_url(5) %>"><img class="logo" src="/assets/carousel_image.jpg"></a>
+</section>
 
-<div class="carousel-content">
-  <h2>Carousel Content Here</h2>
-</div>
+<section class="content group">
+  <section class="main">
 
-<div class="carousel-product-feed-1">
-  <h2>Carousel Product Feed #1 Here</h2>
-  <ul>
-    <% @products.each do |product| %>
-      <a href="<%= product_url(product) %>"><li>
-        <% product.attributes.each do |attr| %>
-          <% unless unwanted_attrs.include?(attr[0]) %>
-            <%= attr[0].titleize %>: <%= attr[1] %>
-          <% end %>
+    <section class="carousel-product-feed-1">
+      <h1>Suggested Products</h1>
+      <ul>
+        <% @products.each do |product| %>
+          <a href="<%= product_url(product) %>">
+            <li>
+              <%= product.name %>
+              <!--
+              <% if product.sales_price.to_s[-2] == "." %>
+                $<%= product.sales_price %>0
+              <% else %>
+                $<%= product.sales_price %>
+              <% end %>
+             -->
+            </li>
+          </a>
         <% end %>
-      </li></a>
-    <% end %>
-  </ul>
-</div>
+      </ul>
+    </section>
 
-<div class="carousel-product-feed-2">
-  <h2>Carousel Product Feed #2 Here</h2>
-</div>
+    <section class="carousel-product-feed-1">
+      <h1>Best Sellers</h1>
+      <ul>
+        <% @products.each do |product| %>
+          <a href="<%= product_url(product) %>">
+            <li>
+              <%= product.name %>
+              <!--
+              <% if product.sales_price.to_s[-2] == "." %>
+                $<%= product.sales_price %>0
+              <% else %>
+                $<%= product.sales_price %>
+              <% end %>
+             -->
+            </li>
+          </a>
+        <% end %>
+      </ul>
+    </section>
 
-<div class="sidebar">
-  <h2>Sidebar Here</h2>
-</div>
+  </section>
+
+  <section class="sidebar">
+    <h1>Top Brands</h1>
+    <ul>
+      <% Brand.all.shuffle.each do |brand| %>
+        <a href="<%= product_url(brand.products.first) %>">
+          <li>
+            <%= brand.name %>
+          </li>
+        </a>
+      <% end %>
+    </ul>
+  </section>
+</section>

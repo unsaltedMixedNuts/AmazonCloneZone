@@ -9,35 +9,58 @@
 <body>
 
   <!-- HEADER NAVIGATION GOES HERE -->
-  <div class="navigation-header">
-    <!-- | current_user: <%= current_user %> | signed_in?: <%= signed_in? %> |<br><br> -->
-    <a href="<%= root_url %>">Home</a>
-    <% if signed_in? %>
-      Signed in as: <%= current_user.name.titleize %>
-      <form action="<%= session_url %>" method="post">
-        <%= form_auth_token %>
-        <input type="hidden" name="_method" value="delete">
-        <button>Not <%= current_user.name.titleize %>? Sign Out</button>
+<section class="all">
+  <header class="navigation-header">
+    <span class="header-row-1 group">
+      <span class="logo-span-header">
+        <a href="<%= root_url %>">
+          <img class="logo" src="/assets/amazon_clone_zone_logo.png">
+        </a>
+      </span>
+
+      <form>
+        <input class="search" type="text" value="   Search">
       </form>
-    <% else %>
-      <a href="<%= new_session_url %>">Sign In</a>
-      <a href="<%= new_user_url %>">Sign Up</a>
-    <% end %>
-    <a href="<%= cart_url %>">Shopping Cart</a>
-    <% if signed_in?%>
-      <a href="<%= orders_url %>">Your Orders</a>
-    <% end %>
-    <br>
-    <a href="<%= root_url %>"><img src="/assets/amazon_clone_zone_logo.png"></a>
-  </div>
+    </span>
+
+    <span class="header-row-2 group">
+      <ul class="header-list">
+        <li><a href="<%= root_url %>">Home</a></li>
+
+        <% if signed_in? %>
+          <li>Signed in as: <%= current_user.name.titleize %>
+            <form action="<%= session_url %>" method="post">
+              <%= form_auth_token %>
+              <input type="hidden" name="_method" value="delete">
+              <button>Not <%= current_user.name.titleize %>? Sign Out</button>
+            </form>
+          </li>
+        <% else %>
+          <li><a href="<%= new_session_url %>">Sign In</a></li>
+          <li><a href="<%= new_user_url %>">Sign Up</a></li>
+        <% end %>
+
+        <li><a href="<%= cart_url %>">Shopping Cart</a></li>
+
+        <% if signed_in?%>
+          <li><a href="<%= orders_url %>">Your Orders</a></li>
+        <% end %>
+      </ul>
+    <span>
+  </header>
 
   <!-- VIEW TEMPLATE RENDERS HERE -->
   <%= yield %>
 
   <!-- NAVIGATION FOOTER GOES HERE -->
-  <div class="navigation-footer">
-    <p>Navigation footer goes here.</p>
-  </div>
+  <footer class="navigation-footer group">
+    <span class="logo-span-footer ">
+      <a href="<%= root_url %>">
+        <img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png">
+      </a>
+    </span>
+  </footer>
+</section>
 
 </body>
 </html>

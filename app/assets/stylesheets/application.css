@@ -14,9 +14,165 @@
  *= require_self
  */
 
-h1 {
-  border: 5px solid black;
+/* ------------RESET------------ */
+/*html, body, header, nav, h1, a, ul, li,
+strong, main, section, img, div, h2, p,
+form, fieldset, label, input, textarea,
+button, article, footer, small {
+}*/
+
+ html, body, header, nav, h1, a, ul, li,
+ strong, main, section, img, div, h2, p,
+ article, footer, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  box-sizing: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  color: inherit;
+  background: transparent;
 }
+
+/* ------------GENERAL------------ */
+body {
+  background: #ff9900;
+  font-family: Arial;
+}
+
+.all {
+  margin: 0 auto;
+  width: 900px;
+  background: white;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+/* ------------CLEARFIX------------ */
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* ------------HEADER------------ */
+header {
+  background: #232f3e;
+  color: #fff;
+  margin: 0 auto;
+  width: 900px
+}
+
+header a:hover {
+  text-decoration: underline;
+  color: #ADADB0;
+}
+
+.logo-span-header {
+  float: left;
+  width: 200px;
+}
+
+.search {
+  float: left;
+  margin: 25px 0 0 50px;
+  width: 600px;
+  height: 35px;
+  background: white;
+  color: black;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.header-list li {
+  float: left;
+  padding: 0 75px;
+}
+
+/* ------------FOOTER------------ */
+footer {
+  margin: 0 auto;
+  width: 900px;
+}
+
+.logo-span-footer {
+  display: block;
+  margin: 0 auto;
+  width: 450px;
+}
+
+/* ------------HOME PAGE / PRODUCTS INDEX PAGE------------ */
+.carousel-content {
+  margin: 0 auto;
+  width: 900px;
+  text-align: center;
+}
+
+.content {
+  margin: 20px auto;
+  width: 900px;
+  overflow: hidden;
+}
+
+.main {
+  /*background: #eee;*/
+  float: left;
+  width: 600px;
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
+}
+
+.carousel-product-feed-1 {
+  /*background: #ccc;*/
+  margin: 0 20px;
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
+  /*border-bottom: 1px solid #ccc;*/
+}
+
+.carousel-product-feed-1:last-child {
+  border-bottom: 1px solid #ccc;
+}
+
+.carousel-product-feed-1 li {
+  margin: 10px;
+}
+
+.carousel-product-feed-1 a:hover {
+  text-decoration: underline;
+  color: #146eb4;
+}
+
+.sidebar {
+  background: #F8F8F9;
+  float: right;
+  padding: 20px 5px;
+  width: 290px;
+  height: auto;
+  text-align: center;
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
+}
+
+.sidebar li {
+  margin: 10px;
+}
+
+/* ------------OTHER------------ */
 
 div {
   border: 5px solid darkgreen;
@@ -26,30 +182,6 @@ div {
   width: 25%;
 }
 
-.navigation-header img {
-  width: 28%;
-}
-
-.navigation-header {
-  border: 5px solid deepskyblue;
-}
-
-.navigation-footer {
-  border: 5px solid deepskyblue;
-}
-
-.carousel-content {
-  border: 5px solid aqua;
-}
-
-.carousel-product-feed-1 {
-  border: 5px solid mediumpurple;
-}
-
 .carousel-product-feed-2 {
   border: 5px solid aqua;
-}
-
-.sidebar {
-  border: 5px solid mediumpurple;
 }
