@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    debugger
     @order = Order.new(order_params)
     @order.user_id = current_user.id
     @order.save
