@@ -52,4 +52,33 @@ class Product < ActiveRecord::Base
       class_name: "Brand",
       primary_key: :id,
       foreign_key: :brand_id
+
+    def average_stars
+      num_of_reviews = self.reviews.count
+
+      if num_of_reviews == 0
+        return "Be the first to review this item"
+      end
+
+      total_stars = 0.0
+      self.reviews.each do |review|
+        total_stars += review.stars
+      end
+
+      average_stars = total_stars / num_of_reviews
+    end
+
+    def price
+      if self.sales_price.to_s[-2] == "."
+        "#{self.sales_price}0"
+      else
+        self.sales_price
+      end
+    end
+
+    def delivery_estimate
+      day = Time.now.strftime("%A")
+      date = 2.days.since(Time.now).strftime("%B %e")
+      "#{day.upcase}, #{date}"
+    end
 end

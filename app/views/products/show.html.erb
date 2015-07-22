@@ -1,83 +1,111 @@
-<h1>Products Show Page</h1>
+<section class="categories">Televisions <%= "&".html_safe %> Video </section>
+<section class="product-show group">
 
-<div class="product-image">
-  <p>Product Image Goes Here</p>
-  <% @product.images.each do |image| %>
-    <img src="<%= image.url %>">
-  <% end %>
-</div>
+  <section class="right">
+    <section class="add-to-cart-form">
+      <form action="<%= carted_items_url %>" method="post">
+        <%= form_auth_token %>
+        <input type="hidden" name="item[product_id]" value="<%= @product.id %>">
 
-<div class="product-description">
-  <p>Product Description Goes Here</p>
-  <% @product.descriptions.each do |li| %>
-    <li><%= li.body %></li>
-  <% end %>
+        <label>
+          Qty:
+          <select name="item[quantity]">
+            <% (1..[@product.quantity, 10].min).each do |qty| %>
+              <option value="<%= qty %>"><%= qty %></option>
+            <% end %>
+          </select>
+        </label><br><br>
 
-</div>
+        <span class="price-color">$<%= @product.price %></span> + Free Shipping<br>
+        <span class="in-stock-color">In Stock.</span> Ships from and sold by
+        <strong>Amazon Clone Zone</strong><br><br>
 
-<div class="add-to-cart-form">
-  <p>Add To Cart Form Goes Here</p>
-  <form action="<%= carted_items_url %>" method="post">
-    <%= form_auth_token %>
-    <input type="hidden" name="item[product_id]" value="<%= @product.id %>">
+        <button class="cart-button">Add to Cart</button>
+      </form>
+    </section>
+  </section>
 
-    <label>
-      Quantity
-      <br>
-
-      <select name="item[quantity]">
-        <% (1..[@product.quantity, 10].min).each do |qty| %>
-          <option value="<%= qty %>"><%= qty %></option>
-        <% end %>
-      </select>
-
-    </label>
-    <br>
-
-    <button>Add to Cart</button>
-  </form>
-</div>
-
-<div class="product-details">
-  <p>Product Details Go Here</p>
-  <% @product.specifications.each do |li| %>
-    <li><%= li.title.titleize %>: <%= li.body %></li>
-  <% end %>
-
-</div>
-
-<div class="quick-promo">
-  <p>Quick Promo Goes Here</p>
-</div>
-
-<div class="questions-answers">
-  <p>Q and A Goes Here</p>
-  <% @product.questions.each do |q| %>
-    <li>
-      <%= q.body %><br>
-      <% q.answers.each do |a| %>
-        A: <%= a.body %>
-        <%= a.user.name %> answered on <%= a.created_at %><br>
+  <section class="left">
+    <section class="product-image">
+      <% @product.images.each do |image| %>
+        <img src="<%= image.url %>">
       <% end %>
-    </li><br>
-  <% end %>
+    </section>
+  </section>
 
-</div>
+  <section class="center">
+    <h2><%= @product.name %></h2>
+    by <%= @product.brand.name %><br><br>
 
-<div class="product-reviews">
-  <p>Product Reviews Go Here</p>
-  <% @product.reviews.each do |li| %>
-    <li><br>
-      Stars: <%= li.stars %><br>
-      Title: <%= li.title %><br>
-      By: <%= li.user.name %><br>
-      Review:<br> <%= li.body %>
-    </li>
-    <br>
-  <% end %>
+    Rating: <%= @product.average_stars %> / 5.0<br>
+    <a href="#product-reviews"><%= @product.reviews.count %> customer reviews</a><br>
+    <a href="#questions-answers"><%= @product.questions.count %> answered questions</a><br><br>
 
-</div>
+    Price: <span class="big-price-color">$<%= @product.price %></span> <%= "&".html_safe %> FREE Shipping<br><br>
+    <span class="big-in-stock-color">In Stock.</span><br>
+    Ships from and sold by AmazonCloneZone.com.<br>
+    <strong>Want it <%= @product.delivery_estimate %>?</strong>  Order <strong class=in-stock-color>today.</strong><br><br>
 
-<div class="recently-viewed-items">
-  <p>Recently Viewed Items Go Here</p>
-</div>
+    <section class="product-description">
+      <ul>
+      <% @product.descriptions.each do |li| %>
+        <li><span><p><%= li.body %></p></span></li>
+      <% end %>
+      </ul>
+      <span class="caretnext">›</span>
+      <a href="#product-details">See more product details</a>
+    </section>
+
+  </section>
+
+  <section id="product-details">
+    <h2><strong>Product Description</strong></h2>
+      <% @product.specifications.each do |li| %>
+        <% if li.title != "Customer Reviews" %>
+          <li><strong><%= li.title.titleize %>:</strong> <%= li.body %></li>
+        <% end %>
+      <% end %>
+
+  </section>
+
+  <section id="questions-answers" class="group">
+    <h2><strong>Customer Questions <%= "&".html_safe %> Answers</strong></h2>
+
+    <ul>
+      <% @product.questions.each do |q| %>
+        <li>
+          <span class="question"><%= q.body %></span><br>
+          <section class="group">
+            <span class="answer-sym">A:</span>
+
+            <span class="answers">
+              <% q.answers.each do |a| %>
+                <%= a.body %><br>
+                <span class="ask-author-and-date">
+                  <%= a.user.name %> answered on <%= a.created_at.strftime( "%B %e, %Y") %><br>
+                </span>
+              <% end %>
+            </span>
+
+          </section>
+        </li><br>
+      <% end %>
+    </ul>
+
+  </section>
+
+  <section id="product-reviews">
+    <span class="review-header">Customer Reviews</span><br>
+    <a href="#product-reviews"><%= @product.reviews.count %> customer reviews</a><br>
+    Average Rating: <%= @product.average_stars %> / 5.0<br><br>
+    <% @product.reviews.each_with_index do |li, idx| %>
+      <%= "<br><br><br><br>".html_safe if idx != 0 %>
+      <li><br>
+        <strong>Rating:</strong> <%= li.stars %> / 5 |
+        <strong><%= li.title %><br></strong>
+        By: <%= li.user.name %> on <%= li.created_at.strftime( "%B %e, %Y") %><br><br>
+        <%= li.body %>
+      </li>
+    <% end %>
+  </section>
+</section>
