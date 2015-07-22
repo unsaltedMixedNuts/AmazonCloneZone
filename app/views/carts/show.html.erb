@@ -1,15 +1,58 @@
-<div class="advertisement">
-  <p>Clickable Advertisement Goes Here</p>
-</div>
+<% session[:url_memory] = cart_url  %>
+<section class="cart">
+  <section class="shopping-cart-items group">
+    <h2>Shopping Cart # <%= @cart.id %></h2>
+    <section class="checkout">
+      <h3>Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= number_with_delimiter(@cart.subtotal, :delimiter => ',') %></h3>
+      <p class="cart-button"><a href="<%= checkout_url %>">Proceed to checkout</a></p>
 
-<div class="checkout">
-  <p>Proceed To Checkout Goes Here</p>
-  <h3>Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= @cart.subtotal %></h3>
-  <p><a href="<%= checkout_url %>">Proceed to checkout</a></p>
+    </section>
 
-</div>
+    <section class="items">
+      <table>
+        <tr>
+          <th class="cart-name-col"></th>
+          <th class="cart-price-col">Price</th>
+          <th class="cart-qty-col">Quantity</th>
+        </tr>
 
-<div class="shopping-cart-items">
+        <% @cart.items.each do |item| %>
+          <tr class="table-row-cart-item">
+            <td>
+              <section class="cart-row group">
+                <section class="cart-image-holder group">
+                  <img src="<%= item.product.images.first.try(:url) %>" class="image">
+                </section>
+                <section class="cart-content">
+                  <a href="<%= product_url(item.product_id) %>"><%= item.product.name %></a> by <%= item.product.brand.name %><br>
+                  In Stock<br>
+                  FREE Shipping<br>
+                  <form action="<%= carted_item_url(item.id) %>" method="post">
+                    <%= form_auth_token %>
+                    <input type="hidden" name="_method" value="delete">
+                    <button>Delete</button>
+                  </form>
+                </section>
+              </section>
+            </td>
+
+            <td class="price">$<%= item.product.price %></td>
+            <td class="qty"><%= item.quantity %></td>
+          </tr>
+
+        <% end %>
+      </table><br>
+
+      <section class="subtotal">
+          Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= number_with_delimiter(@cart.subtotal, :delimiter => ',') %>
+      </section>
+    </section>
+
+  </section>
+
+</section>
+
+<!-- <div class="shopping-cart-items">
   <h1>Shopping Cart # <%= @cart.id %></h1>
   <ul>
     <% @cart.items.each do |item| %>
@@ -29,12 +72,4 @@
   </ul>
 
   <h3>Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= @cart.subtotal %></h3>
-</div>
-
-<div class="buy-it-again">
-  <p>Buy It Again Goes Here</p>
-</div>
-
-<div class="recently-viewed-items">
-  <p>Recently Viewed Items Goes Here</p>
-</div>
+</div> -->

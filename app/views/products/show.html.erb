@@ -1,59 +1,63 @@
 <section class="categories">Televisions <%= "&".html_safe %> Video </section>
 <section class="product-show group">
 
-  <section class="right">
-    <section class="add-to-cart-form">
-      <form action="<%= carted_items_url %>" method="post">
-        <%= form_auth_token %>
-        <input type="hidden" name="item[product_id]" value="<%= @product.id %>">
+  <section class= "group">
 
-        <label>
-          Qty:
-          <select name="item[quantity]">
-            <% (1..[@product.quantity, 10].min).each do |qty| %>
-              <option value="<%= qty %>"><%= qty %></option>
-            <% end %>
-          </select>
-        </label><br><br>
+    <section class="right">
+      <section class="add-to-cart-form">
+        <form action="<%= carted_items_url %>" method="post">
+          <%= form_auth_token %>
+          <input type="hidden" name="item[product_id]" value="<%= @product.id %>">
 
-        <span class="price-color">$<%= @product.price %></span> + Free Shipping<br>
-        <span class="in-stock-color">In Stock.</span> Ships from and sold by
-        <strong>Amazon Clone Zone</strong><br><br>
+          <label>
+            Qty:
+            <select name="item[quantity]">
+              <% (1..[@product.quantity, 10].min).each do |qty| %>
+                <option value="<%= qty %>"><%= qty %></option>
+              <% end %>
+            </select>
+          </label><br><br>
 
-        <button class="cart-button">Add to Cart</button>
-      </form>
+          <span class="price-color">$<%= @product.price %></span> + Free Shipping<br>
+          <span class="in-stock-color">In Stock.</span> Ships from and sold by
+          <strong>Amazon Clone Zone</strong><br><br>
+
+          <button class="cart-button">Add to Cart</button>
+        </form>
+      </section>
     </section>
-  </section>
 
-  <section class="left">
-    <section class="product-image">
-      <% @product.images.each do |image| %>
-        <img src="<%= image.url %>">
-      <% end %>
+    <section class="left">
+      <section class="product-image">
+        <% @product.images.each do |image| %>
+          <img src="<%= image.url %>">
+        <% end %>
+      </section>
     </section>
-  </section>
 
-  <section class="center">
-    <h2><%= @product.name %></h2>
-    by <%= @product.brand.name %><br><br>
+    <section class="center">
+      <h2><%= @product.name %></h2>
+      by <%= @product.brand.name %><br><br>
 
-    Rating: <%= @product.average_stars %> / 5.0<br>
-    <a href="#product-reviews"><%= @product.reviews.count %> customer reviews</a><br>
-    <a href="#questions-answers"><%= @product.questions.count %> answered questions</a><br><br>
+      Rating: <%= @product.average_stars %> / 5.0<br>
+      <a href="#product-reviews"><%= @product.reviews.count %> customer reviews</a><br>
+      <a href="#questions-answers"><%= @product.questions.count %> answered questions</a><br><br>
 
-    Price: <span class="big-price-color">$<%= @product.price %></span> <%= "&".html_safe %> FREE Shipping<br><br>
-    <span class="big-in-stock-color">In Stock.</span><br>
-    Ships from and sold by AmazonCloneZone.com.<br>
-    <strong>Want it <%= @product.delivery_estimate %>?</strong>  Order <strong class=in-stock-color>today.</strong><br><br>
+      Price: <span class="big-price-color">$<%= @product.price %></span> <%= "&".html_safe %> FREE Shipping<br><br>
+      <span class="big-in-stock-color">In Stock.</span><br>
+      Ships from and sold by AmazonCloneZone.com.<br>
+      <strong>Want it <%= @product.delivery_estimate %>?</strong>  Order <strong class=in-stock-color>today.</strong><br><br>
 
-    <section class="product-description">
-      <ul>
-      <% @product.descriptions.each do |li| %>
-        <li><span><p><%= li.body %></p></span></li>
-      <% end %>
-      </ul>
-      <span class="caretnext">›</span>
-      <a href="#product-details">See more product details</a>
+      <section class="product-description">
+        <ul>
+        <% @product.descriptions.each do |li| %>
+          <li><span><p><%= li.body %></p></span></li>
+        <% end %>
+        </ul>
+        <span class="caretnext">›</span>
+        <a href="#product-details">See more product details</a>
+      </section>
+
     </section>
 
   </section>

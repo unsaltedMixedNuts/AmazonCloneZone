@@ -1,3 +1,4 @@
+<span style="color:red;"><%= flash[:errors].join("<br>").html_safe if flash[:errors] %></span>
 <h1>Checkout (<%= pluralize(@cart.num_items, 'item') %>)</h1>
 <!-- <div class="shipping-info"> -->
   <p>Shipping Info Goes Here</p>
@@ -72,7 +73,7 @@
   </ul>
 
   <h3>Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= @cart.subtotal %></h3>
-  <button>Place your order</button>
+  <!-- <button>Place your order</button> -->
 <!-- </div> -->
 
 <!-- <div class="place-order-summary-sidebar"> -->
@@ -85,8 +86,3 @@
   <p>Total before tax: $<%= @cart.subtotal %></p>
   <p>Estimated tax to be collected: $0.00</p>
   <h4>Order total: $<%= @cart.subtotal %></h4>
-<!-- </div> -->
-
-<div class="fine-print">
-  <p>Fineprint Goes Here</p>
-</div>

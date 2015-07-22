@@ -30,7 +30,6 @@ Product.create(name: "Roku 3 Streaming Media Player (4230R) With Voice Search (2
 Product.create(name: "Google Chromecast HDMI Streaming Media Player", sales_price: 29.99, quantity: 100, dept_id: 2, brand_id: 3 )
 Product.create(name: "Fire TV Stick", sales_price: 39.00, quantity: 100, dept_id: 2, brand_id: 4 )
 Product.create(name: "Amazon Fire TV", sales_price: 99.00, quantity: 100, dept_id: 2, brand_id: 4 )
-Product.create(name: "Fire TV Stick", sales_price: 39.00, quantity: 100, dept_id: 2, brand_id: 4 )
 
 
 Department.create(name: "Electronics", parent_dept_id: nil)
@@ -42,6 +41,11 @@ Brand.create(name: "Google")
 Brand.create(name: "Amazon")
 
 Image.create(url: "http://ecx.images-amazon.com/images/I/41uTXEtgjqL._SX522_.jpg", ord: nil, imageable_id: 1, imageable_type: "Product")
+Image.create(url: "http://ecx.images-amazon.com/images/I/51ewP-q28%2BL._SL1000_.jpg", ord: nil, imageable_id:2, imageable_type: "Product")
+Image.create(url: "http://ecx.images-amazon.com/images/I/811nvG%2BLgML._SL1500_.jpg", ord: nil, imageable_id:3, imageable_type: "Product")
+Image.create(url: "http://ecx.images-amazon.com/images/I/6167-OL%2BM%2BL._SL1000_.jpg", ord: nil, imageable_id:4, imageable_type: "Product")
+Image.create(url: "http://ecx.images-amazon.com/images/I/61w8hhpAp7L._SL1000_.jpg", ord: nil, imageable_id:5, imageable_type: "Product")
+
 Image.create(url: "https://images-na.ssl-images-amazon.com/images/I/61lD0SQk6wL._SL1600_.jpg", ord: nil, imageable_id: 1, imageable_type: "Review")
 
 Description.create(

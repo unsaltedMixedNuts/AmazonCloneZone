@@ -8,7 +8,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if email == email_2 && password == password_2 && @user.save
       sign_in(@user)
-      redirect_to root_url
+
+      if session[:url_memory]
+        temp_url = session[:url_memory]
+        session[:url_memory] = nil
+        redirect_to temp_url
+      else
+        redirect_to root_url
+      end
     else
       flash.now[:errors] = @user.errors.full_messages
       flash.now[:errors] << "E-mails must match" if email != email_2

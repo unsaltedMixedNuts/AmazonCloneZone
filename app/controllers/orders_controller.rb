@@ -8,9 +8,13 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user_id = current_user.id
-    @order.save
-    flash[:notice] = "Your Order Has Been Placed Successfully!"
-    redirect_to order_url(@order)
+    if @order.save
+      flash[:notice] = "Your Order Has Been Placed Successfully!"
+      redirect_to order_url(@order)
+    else
+      flash[:errors] = @order.errors.full_messages
+      redirect_to checkout_url
+    end
   end
 
   def show

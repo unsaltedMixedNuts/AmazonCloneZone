@@ -8,7 +8,13 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:email].downcase, params[:user][:password])
     if @user
       sign_in(@user)
-      redirect_to root_url
+      if session[:url_memory]
+        temp_url = session[:url_memory]
+        session[:url_memory] = nil
+        redirect_to temp_url
+      else
+        redirect_to root_url
+      end
     else
       @user = User.new(email: params[:user][:emai])
       flash.now[:errors] = "Invalid username or password."
