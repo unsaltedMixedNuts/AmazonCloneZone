@@ -37,7 +37,14 @@ class Cart < ActiveRecord::Base
       subtotal += item.quantity * item.product.sales_price
     end
 
-    return subtotal
+    subtotal.to_s[-2] == "." ? "#{subtotal}0" : subtotal
   end
 
+  def empty_cart
+    self.items.each do |item|
+      item.destroy
+    end
+
+    return nil
+  end
 end

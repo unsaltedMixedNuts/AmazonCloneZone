@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
     @user = User.new
-    render :new
+    render :new, layout: "blank"
   end
 
   def create
@@ -18,12 +18,13 @@ class SessionsController < ApplicationController
     else
       @user = User.new(email: params[:user][:emai])
       flash.now[:errors] = "Invalid username or password."
-      render :new
+      render :new, layout: "blank"
     end
   end
 
   def destroy
     sign_out
+    session[:url_memory] = nil
     redirect_to root_url
   end
 end

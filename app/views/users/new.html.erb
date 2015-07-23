@@ -1,42 +1,72 @@
-<%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+<section class="sign-in-wrapper">
+  <section class="top-slots group">
+    <section class="logo-top-slot">
+      <a href="<%= products_url %>"><img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png"></a>
+    </section>
+    <a href="<%= cart_url %>"><span class="links-top-slot generic-link">Shopping Cart</span></a>
+  </section>
 
-<form action="<%= users_url %>" method="post">
-  <%= form_auth_token %>
+  <section class="center-slots">
+    <span class="flash-errors">
+      <%= flash[:errors].join("<br>").html_safe + "<br><br>".html_safe if flash[:errors] %>
+    </span>
 
-  <h2>Registration</h2>
-  <h3>New to AmazonCloneZone.com?  Register Below.</h3>
-  <label>
-    My name is:
-    <input type="text" name="user[name]" value="<%= @user.name %>">
-  </label>
-  <br>
+    <form action="<%= users_url %>" method="post">
+      <%= form_auth_token %>
 
-  <label>
-    My e-mail address is:
-    <input type="text" name="user[email]">
-  </label>
-  <br>
+      <h2><strong>Registration</strong></h2><br>
+      <h3>New to AmazonCloneZone.com?  Register Below.</h3><br>
 
-  <label>
-    Type it again:
-    <input type="text" name="user[email_2]">
-  <label>
-  <br>
+      <table class="registration-table">
+        <tr>
+          <td class="registration-label">My name is:</td>
+          <td>
+            <input type="text" name="user[name]" value="<%= @user.name %>">
+          </td>
+        </tr>
 
-<h3>Protect your information with a password</h3>
-<p>This will be your only AmazonCloneZone.com password.</p>
-  <label>
-    Enter a new password:
-    <input type="password" name="user[password]">
-  </label>
-  <br>
+        <tr>
+          <td class="registration-label">My email address is:</td>
+          <td>
+            <input type="text" name="user[email]">
+          </td>
+        </tr>
 
-  <label>
-    Type it again:
-    <input type="password" name="user[password_2]">
-  </label>
-  <br>
-  <button>Create account</button>
+        <tr>
+          <td class="registration-label">Type it again:</td>
+          <td>
+            <input type="text" name="user[email_2]">
+          </td>
+        </tr>
 
-  <p>By creating an account, you agree to AmazonCloneZone.com's Conditions of Use and Privacy Notice, which both have not been written yet.</p>
-</form>
+        <tr>
+          <td class="registration-label"><br>Enter a new password:</td>
+          <td>
+            <br><input type="password" name="user[password]">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="registration-label">Type it again:</td>
+          <td>
+            <input type="password" name="user[password_2]">
+          </td>
+        </tr>
+      </table><br>
+      <button class="generic-button">Create account</button><br><br>
+
+      <p class="fine-print">By creating an account, you agree that Amazon Clone Zone is your new favorite website.</p>
+    </form>
+  </section>
+
+  <section class="bottom-slots">
+    <form action="<%= session_url %>" method="post">
+      <%= form_auth_token %>
+      <input type="hidden" name="user[email]" value="abc@xyz.com">
+      <input type="hidden" name="user[password]" value="top secret">
+      <section class="callout-1">Don't feel like filling out a form?</section>
+      <!-- <section class="callout-2">Sign in as a guest user</section> -->
+      <button class="guest-sign-in-button">Sign In As A Guest</button>
+    </form>
+  </section>
+</section>

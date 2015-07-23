@@ -24,6 +24,12 @@ ghazi.save
 )).password="password"
 william.save
 
+(guest = User.new(
+  email: "abc@xyz.com",
+  name: "Guest User",
+)).password="top secret"
+guest.save
+
 
 Product.create(name: "Apple TV MD199LL/A (Current Version)", sales_price: 59.99, quantity: 100, dept_id: 2, brand_id: 1 )
 Product.create(name: "Roku 3 Streaming Media Player (4230R) With Voice Search (2015 model)", sales_price: 99.00, quantity: 100, dept_id: 2, brand_id: 2 )

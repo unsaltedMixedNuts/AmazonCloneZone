@@ -1,27 +1,51 @@
-<%= flash[:errors].html_safe if flash[:errors] %>
+<section class="sign-in-wrapper">
+  <section class="top-slots group">
+    <section class="logo-top-slot">
+      <a href="<%= products_url %>"><img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png"></a>
+    </section>
+    <a href="<%= cart_url %>"><span class="links-top-slot generic-link">Shopping Cart</span></a>
+  </section>
 
-<form action="<%= session_url %>" method="post">
-  <%= form_auth_token %>
+  <section class="center-slots">
+    <span class="flash-errors">
+      <%= flash[:errors].html_safe + "<br><br>".html_safe if flash[:errors] %>
+    </span>
 
-  <h2>Sign In</h2>
-  <br>
-  <a href="<%= new_user_url %>" class="generic-link">Don't have an Amazon Clone Zone account?  Sign Up!</a>
-  <h3>What is your e-mail and password?</h3>
+    <form action="<%= session_url %>" method="post">
+      <%= form_auth_token %>
 
-  <label>
-    Email:
-    <input type="text" name="user[email]" value="<%= @user.name %>">
-  </label>
-  <br>
+      <h2><strong>Sign In</strong></h2>
+      <br>
+      <a href="<%= new_user_url %>" class="generic-link">Don't have an Amazon Clone Zone account?  Sign Up!</a><br><br>
+      <h3>What is your e-mail and password?</h3>
 
-  <label>
-    Enter a new password:
-    <input type="password" name="user[password]">
-  </label>
-  <br>
+      <label>
+        Email:<br>
+        <input type="text" name="user[email]" value="<%= @user.name %>">
+      </label>
+      <br><br><br>
 
-  <button>Sign in using our secure server</button>
-</form>
+      <label>
+        Password:<br>
+        <input type="password" name="user[password]">
+      </label>
+      <br><br>
 
-<h4>Sign In Help</h4>
-<p>Forgot your password?  <a href="#">Get password help.</a></p>
+      <button class="generic-button">Sign in</button>
+    </form>
+
+    <h4>Sign In Help</h4>
+    <p>Forgot your password?  Me too!  :-{</p>
+  </section>
+
+  <section class="bottom-slots">
+    <form action="<%= session_url %>" method="post">
+      <%= form_auth_token %>
+      <input type="hidden" name="user[email]" value="abc@xyz.com">
+      <input type="hidden" name="user[password]" value="top secret">
+      <section class="callout-1">Don't feel like filling out a form?</section>
+      <!-- <section class="callout-2">Sign in as a guest user</section> -->
+      <button class="guest-sign-in-button">Sign In As A Guest</button>
+    </form>
+  </section>
+</section>

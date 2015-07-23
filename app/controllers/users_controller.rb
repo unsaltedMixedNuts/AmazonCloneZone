@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    render :new
+    render :new, layout: "blank"
   end
 
   def create
@@ -18,9 +18,9 @@ class UsersController < ApplicationController
       end
     else
       flash.now[:errors] = @user.errors.full_messages
-      flash.now[:errors] << "E-mails must match" if email != email_2
+      flash.now[:errors] << "Emails must match" if email != email_2
       flash.now[:errors] << "Passwords must match" if password != password_2
-      render :new
+      render :new, layout: "blank"
     end
   end
 

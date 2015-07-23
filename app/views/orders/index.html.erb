@@ -1,7 +1,7 @@
 <% exclusions = ["id", "user_id", "full_name", "order_number", "created_at", "updated_at"] %>
 <h1>Your Orders</h1>
 <ul>
-  <% @orders.each do |order| %>
+  <% @orders.reverse.each do |order| %>
     <li>
       <strong><a href="<%= order_url(order) %>">Order Number:<%= order.order_number %><br></a></strong>
       Order Date:<%= order.created_at.strftime "%B %e, %Y" %><br>

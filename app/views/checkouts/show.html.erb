@@ -1,88 +1,173 @@
-<span style="color:red;"><%= flash[:errors].join("<br>").html_safe if flash[:errors] %></span>
-<h1>Checkout (<%= pluralize(@cart.num_items, 'item') %>)</h1>
-<!-- <div class="shipping-info"> -->
-  <p>Shipping Info Goes Here</p>
-<form action="<%= orders_url %>" method="post">
-  <%= form_auth_token %>
-    <label>
-      Full Name:
-      <input type="text" name="order[full_name]">
-    </label>
-    <br>
+<section class="checkout-header">
 
-    <label>
-      Street Address and Apartment:
-      <input type="text" name="order[address_line_1]">
-    </label>
-    <br>
+  <section class="checkout-header-left">
+    <a href="<%= products_url %>">
+      <img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png">
+    </a>
+  </section>
 
-    <label>
-      City, State, and Zip
-      <input type="text" name="order[address_line_2]">
-    </label>
-    <br>
-<!-- </div> -->
+  <section class="checkout-header-right">
+    <img class="lock-picture" src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/checkout/truespc/secured-ssl._V342551765_.png">
+  </section>
 
-<!-- <div class="payment-info"> -->
-  <p>Payment Info Goes Here</p>
-  <p>Amazon Clone Zone accepts all major credit and debit cards.</p>
+  <section class="checkout-header-center">
+    <h1>
+      Checkout (<a class="generic-link" href="<%= cart_url %>">
+        <%= pluralize(@cart.num_items, 'item') %>
+      </a>)
+    </h1>
+  </section>
 
-    <input type="hidden" name="order[payment_method]" value="debit/credit card">
-    <label>
-      Card number
-      <input type="text">
-    </label>
-    <br>
+</section>
 
-    <label>
-      Name on card
-      <input type="text">
-    </label>
-    <br>
 
-    <label>
-      Expiration date
-      <select>
-        <% (1..12).each do |month| %>
-          <option><%= month %></option>
-        <% end %>
-      </select>
-      <select>
-        <% (2015..2035).each do |year| %>
-          <option><%= year %></option>
-        <% end %>
-      </select>
-    </label>
-    <br>
-<!-- </div> -->
+<section class="checkout-sidebar">
 
-<!-- <div class="review"> -->
-  <p>Review Items and Shipping Goes Here</p>
-  <h3>Estimated Delivery: <%= 2.days.since.strftime "%B %e, %Y" %></h3>
+  <form action="<%= orders_url %>" method="post">
+    <%= form_auth_token %>
 
-  <ul>
-    <% @cart.items.each do |item| %>
-      <li>
-        <a href="<%= product_url(item.product_id) %>">
-          Item: <%= item.product.name %> Price: <%= item.product.sales_price %> Quantity: <%= item.quantity %>
-        </a>
+    <input type="hidden" name="order[full_name]" value="Guest User">
+    <input type="hidden" name="order[address_line_1]" value="57 E 57th St">
+    <input type="hidden" name="order[address_line_2]" value="New York, NY 10022">
+    <input type="hidden" name="order[payment_method]" value="debit / credit card">
 
-      </li>
-      <br>
-    <% end %>
-  </ul>
+    <section class="callout-2">
+      Don't feel like filling out shipping and payment information?
+    </section>
 
-  <h3>Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= @cart.subtotal %></h3>
-  <!-- <button>Place your order</button> -->
-<!-- </div> -->
+    <button class="cart-button">
+      Place your order on some guy named Guest User's credit card.  He's OK with this.
+    </button><br>
+  </form>
+  <!-- <span>Order Summary</span><br>
+  <span>Items (x): $<%= @cart.subtotal %></span><br>
+  <span>Shipping <%= "&" %> handling: $0.00</span><br>
+  <span>Total before tax: $<%= @cart.subtotal %></span><br>
+  <span>Estimated tax to be collected: $0.00</span><br>
+  <span>Order total: $<%= @cart.subtotal %></span> -->
+</section>
 
-<!-- <div class="place-order-summary-sidebar"> -->
-  <button>Place your order</button>
-</form>
-  <p>Order Summary Goes Here</p>
-  <h3>Order Summary</h3>
-  <p>Items: $<%= @cart.subtotal %></p>
-  <p>Shipping and handling: $0.00</p>
-  <p>Total before tax: $<%= @cart.subtotal %></p>
-  <p>Estimated tax to be collected: $0.00</p>
-  <h4>Order total: $<%= @cart.subtotal %></h4>
+
+<section class="checkout-slots">
+  <span>
+    <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+  </span>
+
+  <form action="<%= orders_url %>" method="post">
+    <%= form_auth_token %>
+
+    <section class="checkout-borders">
+      <section class="top-checkout-slots group">
+        <span class="checkout-numbering">1</span>
+        <span>Shipping Address</span>
+
+        <table class="checkout-table">
+          <tr>
+            <td class="checkout-label">Full Name</td>
+            <td>
+              <input type="text" name="order[full_name]">
+            </td>
+          </tr>
+
+          <tr>
+            <td class="checkout-label">
+              Street Address <%= "&" %> Apartment
+            </td>
+            <td>
+              <input type="text" name="order[address_line_1]">
+            </td>
+          </tr>
+
+          <tr>
+            <td class="checkout-label">
+              City, State, and Zip
+            </td>
+            <td>
+              <input type="text" name="order[address_line_2]">
+            </td>
+          </tr>
+        </table>
+      </section>
+    </section>
+
+    <section class="checkout-borders">
+      <section class="center-checkout-slots group">
+        <span class="checkout-numbering">2</span>
+        <span>Payment Method</span>
+        <input type="hidden" name="order[payment_method]" value="debit / credit card">
+
+        <table class="checkout-table">
+          <tr>
+            <td class="checkout-label">Card Number</td>
+            <td><input type="text"></td>
+          </tr>
+
+          <tr>
+            <td class="checkout-label">Name On Card</td>
+            <td><input type="text"></td>
+          </tr>
+
+          <tr>
+            <td class="checkout-label">Expiration Date</td>
+            <td>
+              <select>
+                <% (1..12).each do |month| %>
+                  <option><%= month %></option>
+                <% end %>
+              </select>
+
+              <select>
+                <% (2015..2035).each do |year| %>
+                  <option><%= year %></option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </section>
+
+    <section class="bottom-checkout-slots">
+      <% @cart.items.each do |item| %>
+        <section class="checkout-item-row group">
+          <section class="checkout-product-picture">
+            <img src="<%= item.product.images.first.try(:url) %>">
+          </section>
+
+          <section class="checkout-product-info">
+
+            <span class="checkout-generic-important-font">
+              <%= item.product.name %>
+            </span><br>
+
+            <span class="checkout-generic-font">
+              by: <%= item.product.brand.name %>
+            </span><br>
+
+            <span class="checkout-product-price">
+              $<%= item.product.price %>
+            </span><br>
+
+            <span class="checkout-generic-font">
+              Sold by: AmazonCloneZone.com
+            </span><br>
+
+            <span class="checkout-generic-important-font">
+              Quantity: <%= item.quantity %>
+            </span>
+          </section>
+        </section>
+      <% end %>
+
+      <section class="place-order-section">
+        <span class="generic-price-styling">
+
+          <button class="cart-button">Place your order</button>
+
+          Order total: $<%= @cart.subtotal %>
+
+        </span>
+      </section>
+    </section>
+  </form>
+</section>

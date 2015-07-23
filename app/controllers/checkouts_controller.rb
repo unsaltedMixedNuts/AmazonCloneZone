@@ -3,7 +3,7 @@ class CheckoutsController < ApplicationController
     if signed_in?
       get_or_set_cart
       if @cart && @cart.items.length > 0
-        render :show
+        render :show, layout: "blank"
       else
         redirect_to cart_url
       end

@@ -4,7 +4,7 @@
     <h2>Shopping Cart # <%= @cart.id %></h2>
     <section class="checkout">
       <h3>Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= number_with_delimiter(@cart.subtotal, :delimiter => ',') %></h3>
-      <p class="cart-button"><a href="<%= checkout_url %>">Proceed to checkout</a></p>
+      <a href="<%= checkout_url %>"><p class="cart-button">Proceed to checkout</p></a>
 
     </section>
 
@@ -20,11 +20,13 @@
           <tr class="table-row-cart-item">
             <td>
               <section class="cart-row group">
-                <section class="cart-image-holder group">
+                <a href="<%= product_url(item.product_id) %>">
+                  <section class="cart-image-holder group">
                   <img src="<%= item.product.images.first.try(:url) %>" class="image">
-                </section>
+                  </section>
+                </a>
                 <section class="cart-content">
-                  <a href="<%= product_url(item.product_id) %>"><%= item.product.name %></a> by <%= item.product.brand.name %><br>
+                  <a class="generic-link" href="<%= product_url(item.product_id) %>"><strong><%= item.product.name %></a></strong> by <%= item.product.brand.name %><br>
                   In Stock<br>
                   FREE Shipping<br>
                   <form action="<%= carted_item_url(item.id) %>" method="post">
@@ -51,25 +53,3 @@
   </section>
 
 </section>
-
-<!-- <div class="shopping-cart-items">
-  <h1>Shopping Cart # <%= @cart.id %></h1>
-  <ul>
-    <% @cart.items.each do |item| %>
-      <li>
-        <a href="<%= product_url(item.product_id) %>">
-          Item: <%= item.product.name %> Price: <%= item.product.sales_price %> Quantity: <%= item.quantity %>
-        </a>
-
-        <form action="<%= carted_item_url(item.id) %>" method="post">
-          <%= form_auth_token %>
-          <input type="hidden" name="_method" value="delete">
-          <button>Delete</button>
-        </form>
-      </li>
-      <br>
-    <% end %>
-  </ul>
-
-  <h3>Subtotal (<%= pluralize(@cart.num_items, 'item') %>): $<%= @cart.subtotal %></h3>
-</div> -->
