@@ -2,10 +2,21 @@
 <html>
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <style>
+  body {
+    background #fff;
+  }
+  .whoa {
+    background: transparent;
+  }
+
+  .whoa-img {
+    margin: 0 auto;
+  }
+
+  </style>
   <!-- /*<style>
   body {
     background-color: #EFEFEF;
@@ -67,24 +78,9 @@
     <p>If you are the application owner check the logs for more information.</p>
   </div> -->
 
-  <section class="all">
-    <!-- VIEW TEMPLATE RENDERS HERE -->
-    <section class="sign-in-wrapper">
-      <section class="top-slots group">
-        <section class="logo-top-slot">
-          <a href="<%= products_url %>"><img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png"></a>
-        </section>
-        <a href="<%= products_url %>"><span class="links-top-slot generic-link">Home</span></a>
+      <section class="whoa">
+        <img src="/assets/whoa_logo.png" class="whoa-img">
       </section>
-
-      <section class="center-slots">
-        <img src="/assets/whoa_logo.png">
-      </section>
-
-    </section>
-
-
-  </section>
 
 </body>
 </html>
