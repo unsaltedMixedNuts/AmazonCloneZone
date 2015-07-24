@@ -3,7 +3,7 @@
     <section class="logo-top-slot">
       <a href="<%= products_url %>"><img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png"></a>
     </section>
-    <a href="<%= cart_url %>"><span class="links-top-slot generic-link">Shopping Cart</span></a>
+    <a href="#guest-sign-in-button"><span class="links-top-slot generic-link">Sign In As A Guest</span></a>
   </section>
 
   <section class="center-slots">
@@ -15,7 +15,7 @@
       <%= form_auth_token %>
 
       <h2><strong>Registration</strong></h2><br>
-      <h3>New to AmazonCloneZone.com?  Register Below.</h3><br>
+      <h3>New to AmazonCloneZone.com?</h3><h3>Register Below.</h3><br>
 
       <table class="registration-table">
         <tr>
@@ -66,7 +66,7 @@
       <input type="hidden" name="user[password]" value="top secret">
       <section class="callout-1">Don't feel like filling out a form?</section>
       <!-- <section class="callout-2">Sign in as a guest user</section> -->
-      <button class="guest-sign-in-button">Sign In As A Guest</button>
+      <button class="guest-sign-in-button" id="guest-sign-in-button">Sign In As A Guest</button>
     </form>
   </section>
 </section>

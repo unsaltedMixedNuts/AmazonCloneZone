@@ -45,8 +45,12 @@ body {
 
 .all {
   margin: 0 auto;
+  margin-bottom: 30px;
   width: 900px;
   background: white;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  overflow: hidden;
 }
 
 li {
