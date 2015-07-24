@@ -564,6 +564,10 @@ footer {
   color: #c45500;
 }
 
+.checkout-errors {
+  text-align: center;
+}
+
 /* ------------SESSION NEW PAGE------------ */
 .sign-in-wrapper {
   /*background: green;*/
@@ -803,7 +807,7 @@ footer {
 .callout-2 {
    text-align: center;
    color: #146eb4;
-   font-size: 15px;
+   font-size: 20px;
    font-weight: bold;
    margin-bottom: 5px;
  }

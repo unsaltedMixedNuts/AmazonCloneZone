@@ -32,11 +32,11 @@
     <input type="hidden" name="order[payment_method]" value="debit / credit card">
 
     <section class="callout-2">
-      Don't feel like filling out shipping and payment information?
+      Don't wanna fill out the shipping and payment information below?
     </section>
 
     <button class="cart-button">
-      Place your order on some guy named Guest User's credit card.  He's OK with this.
+      Click here to pay with some guy named Guest User's credit card.  He's OK with this.
     </button><br>
   </form>
   <!-- <span>Order Summary</span><br>
@@ -49,9 +49,9 @@
 
 
 <section class="checkout-slots">
-  <span>
+  <section class="flash-errors checkout-errors">
     <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
-  </span>
+  </section>
 
   <form action="<%= orders_url %>" method="post">
     <%= form_auth_token %>
