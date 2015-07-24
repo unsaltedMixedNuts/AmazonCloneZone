@@ -65,7 +65,7 @@ class Product < ActiveRecord::Base
         total_stars += review.stars
       end
 
-      average_stars = total_stars / num_of_reviews
+      average_stars = (total_stars / num_of_reviews).round(1)
     end
 
     def price
