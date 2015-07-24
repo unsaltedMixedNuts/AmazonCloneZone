@@ -75,6 +75,16 @@
   <section id="questions-answers" class="group">
     <h2><strong>Customer Questions <%= "&".html_safe %> Answers</strong></h2>
 
+    <section class="ask-question-form-section">
+      <span class="flash-errors"><%= flash[:errors].html_safe if flash[:errors] %></span>
+      <form class="ask-question-form" action="<%= questions_url %>" method="post">
+        <%= form_auth_token %>
+        <input class="ask-question-input" type="text" name="question[body]" placeholder="Have a question? Ask the owners here">
+        <input type="hidden" name="question[product_id]" value="<%= @product.id %>">
+        <button class="ask-question-button">Ask</button>
+      </form>
+    </section>
+
     <ul>
       <% @product.questions.each do |q| %>
         <li>

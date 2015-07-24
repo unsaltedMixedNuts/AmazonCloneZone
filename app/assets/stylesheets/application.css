@@ -386,6 +386,49 @@ footer {
   color: #aaa;
 }
 
+.ask-question-form-section {
+  margin: 10px 0;
+}
+
+.ask-question-input {
+  width: 300px;
+  height: 31px;
+  padding: 3px 7px;
+  line-height: normal;
+  border: 1px solid #a6a6a6;
+  border-top-color: #949494;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.5),0 1px 0 rgba(0,0,0,.07) inset;
+  outline: 0;
+  background: #fff;
+  outline-offset: -2px;
+  font-size: 100%;
+}
+
+.ask-question-input:focus {
+  border-color: #e77600;
+  box-shadow: 0 0 3px rgba(226,121,19,.5),0 1px 0 rgba(0,0,0,.07) inset;
+}
+
+.ask-question-button {
+  /*padding: 10px 80px;*/
+  color: #000;
+  /*background: #f0c14b;*/
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+  font-weight: bold;
+  border-radius: 4px;
+  height: 35px;
+  margin-left: 10px;
+  width: 50px;
+  /*width: 42px;*/
+  cursor: pointer;
+  text-align: center;
+}
+
+.ask-question-button:hover {
+  background: #846a29;
+}
+
 /* ------------PRODUCT SHOW PAGE | PRODUCT REVIEWS------------ */
 #product-reviews {
   border-top: 1px solid #ccc;
