@@ -1,17 +1,75 @@
-<% exclusions = ["id", "user_id", "full_name", "order_number", "created_at", "updated_at"] %>
-<h1>Your Orders</h1>
-<ul>
-  <% @orders.reverse.each do |order| %>
-    <li>
-      <strong><a href="<%= order_url(order) %>">Order Number:<%= order.order_number %><br></a></strong>
-      Order Date:<%= order.created_at.strftime "%B %e, %Y" %><br>
-      Shipped To: <%= order.full_name %><br>
-      <% order.attributes.each do |attr| %>
-        <% if !exclusions.include?(attr[0]) %>
-          <%= attr[0].titleize %>: <%= attr[1] %><br>
-        <% end %>
-      <% end %>
-    </li>
-    <br><br>
-  <% end %>
-</ul>
+<br>
+<h1 class="callout-1">Your Orders</h1>
+
+<% @orders.reverse.each do |order| %>
+  <section class="order-index-sections">
+    <table class="order-table">
+
+      <tr>
+        <th colspan="2" class="callout-2"><h3>Order # <%= order.order_number %></h3></th>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>Estimated Delivery:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= 2.days.since(order.created_at).strftime "%B %e, %Y" %></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>Ship To:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= order.full_name %></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>Street Address:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= order.address_line_1 %></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>City, State, Zip:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= order.address_line_2 %></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>Order Submitted:</h3>
+        </td>
+
+        <td>
+          <h3><%= order.created_at.in_time_zone('Eastern Time (US & Canada)').strftime "%B %e, %Y at %l:%M %p" %></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>Payment Method:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= order.payment_method.titleize %></h3>
+        </td>
+      </tr>
+
+
+    </table>
+  </section>
+<% end %>

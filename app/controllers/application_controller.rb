@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_or_set_cart
-    if session[:cart_id]
+    if session[:cart_id] && Cart.find_by_id(session[:cart_id])
       @cart = Cart.find(session[:cart_id])
     else
       @cart = signed_in? ? Cart.find(current_user.cart.id) : Cart.create

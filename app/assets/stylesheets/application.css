@@ -812,12 +812,35 @@ footer {
    margin-bottom: 5px;
  }
 
+/* ------------ORDER SHOW PAGE------------ */
+.order-show-section {
+  margin: 20px;
+  text-align: center;
+}
+
+.order-table {
+  /*background: lightgreen;*/
+  margin: 0 auto;
+}
+
+.order-table-left {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.order-table-right {
+  text-align: left;
+}
+
+.order-index-sections {
+  /*background: lightgreen;*/
+  padding: 5px;
+  margin: 25px;
+  border-bottom: 1px solid #ccc;
+}
 
 
 /* ------------OTHER------------ */
-div {
-  border: 5px solid darkgreen;
-}
-
 /*amazon blue: #146eb4;
 amazon orange: #ff9900;*/
+/* ------------OTHER------------ */
