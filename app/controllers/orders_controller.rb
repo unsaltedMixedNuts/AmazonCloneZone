@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  before_action :require_sign_in
+
   def index
     @orders = Order.where("user_id = ?", current_user.id)
     render :index
@@ -21,7 +23,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    render :show
+    if @order.user.id == current_user.id
+      render :show
+    else
+      redirect_to orders_url
+    end
   end
 
   def order_params
