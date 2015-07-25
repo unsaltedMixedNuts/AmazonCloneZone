@@ -77,7 +77,7 @@ class Product < ActiveRecord::Base
     end
 
     def delivery_estimate
-      day = Time.now.strftime("%A")
+      day = 2.days.since(Time.now).strftime("%A")
       date = 2.days.since(Time.now).strftime("%B %e")
       "#{day.upcase}, #{date}"
     end
