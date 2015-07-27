@@ -9,6 +9,7 @@ Amazon Clone Zone is a Amazon.com clone written primarily in Rails. [Check out o
 ### Highlights
 * Users permitted to use many website features without logging in.
 * Items placed in cart before sign-in are merged with contents of cart belonging to user's account upon authentication.
+
 <!-- * Custom authentication using BCrypt overrides User#passsword= method to store secret hash instead of plain text.
 * Uses subviews in Backbone to render views with listeners in order to prevent re-rendering the entire page upon the completion of `GET` requests.
 * OAuth allows users to sign in with Twitter through allowing User instances to store either a username and password  or a provider and secret ID.
