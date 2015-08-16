@@ -13,6 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//=require underscore
-//=require backbone
+//= require underscore
+//= require backbone
+//= require amazon_clone_zone
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
 //= require_tree .
