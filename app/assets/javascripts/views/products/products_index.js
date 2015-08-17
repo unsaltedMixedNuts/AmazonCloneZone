@@ -8,6 +8,7 @@ AmazonCloneZone.Views.ProductsIndex = Backbone.View.extend({
   },
 
   render: function () {
+    // alert("RENDERING!");
     var content = this.template({ products: this.collection });
     this.$el.html(content);
     return this;

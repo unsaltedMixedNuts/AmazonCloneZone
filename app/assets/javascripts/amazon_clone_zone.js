@@ -4,13 +4,7 @@ window.AmazonCloneZone = {
   Views: {},
   Routers: {},
   initialize: function () {
-    // alert("Hello from Backbone!");
-    AmazonCloneZone.Collections.products.fetch();
-    var view = new AmazonCloneZone.Views.ProductsIndex({ collection: AmazonCloneZone.Collections.products})
-    $("#backbone-section").html(view.render().$el);
+    new AmazonCloneZone.Routers.Router();
+    Backbone.history.start();
   }
 };
-
-$(document).ready(function () {
-  AmazonCloneZone.initialize();
-});

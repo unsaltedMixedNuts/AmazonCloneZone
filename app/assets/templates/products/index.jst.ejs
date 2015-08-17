@@ -1,3 +1,50 @@
-<% products.each(function(product) { %>
-  <%= product.escape('name') %><br><br>
-<% }) %>
+<section class="carousel-content">
+  <a href="#">
+    <img class="logo" src="/assets/carousel_image.jpg">
+  </a>
+</section>
+
+<section class="content group">
+  <section class="main">
+
+    <section class="carousel-product-feed-1">
+      <h1>Suggested Products</h1>
+      <ul>
+        <% products.each(function (product) { %>
+          <a href="#/products/<%=product.escape("id")%>">
+            <li>
+              <%= product.escape("name") %>
+            </li>
+          </a>
+        <% });%>
+      </ul>
+    </section>
+
+    <section class="carousel-product-feed-1">
+      <h1>Best Sellers</h1>
+      <ul>
+          <% products.each(function (product) { %>
+            <a href="#/products/<%=product.escape("id")%>">
+              <li>
+                <%= product.escape("name") %>
+              </li>
+            </a>
+          <% });%>
+      </ul>
+    </section>
+
+  </section>
+
+  <section class="sidebar">
+    <h1>Top Brands</h1>
+    <ul>
+      <% products.each(function (product) { %>
+        <a href="#/products/<%=product.escape("id")%>">
+          <li>
+            <%= product.escape("name") %>
+          </li>
+        </a>
+      <% });%>
+    </ul>
+  </section>
+</section>
