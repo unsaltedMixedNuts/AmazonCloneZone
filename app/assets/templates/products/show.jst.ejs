@@ -28,21 +28,21 @@
 
     <section class="left">
       <section class="product-image">
-        <% product.images().forEach(function (image) { %>
-          <img src="">
+        <% product.images().forEach(function (url) { %>
+          <img src="<%= url %>">
         <% }); %>
       </section>
     </section>
 
     <section class="center">
       <h2><%= product.escape("name") %></h2>
-      by product.brand().escape("name") <br><br>
+      by <%= product.escape("brand_name") %> <br><br>
 
       Rating: <%= product.averageStars() %> / 5.0<br>
       <a href="#"><%= product.reviews().length %> customer reviews</a><br>
       <a href="#"><%= product.questions().length %> answered questions</a><br><br>
 
-      Price: <span class="big-price-color">$<%= product.escape("price") %></span> &amp FREE Shipping<br><br>
+      Price: <span class="big-price-color">$<%= product.price() %></span> &amp FREE Shipping<br><br>
       <span class="big-in-stock-color">In Stock.</span><br>
       Ships from and sold by AmazonCloneZone.com.<br>
       <strong>Want it <%= product.deliveryEstimate() %>?</strong>  Order <strong class=in-stock-color>today.</strong><br><br>
@@ -50,7 +50,7 @@
       <section class="product-description">
         <ul>
         <% product.descriptions().forEach(function (li) { %>
-          <li><span><p>li.escape("body")</p></span></li>
+          <li><span><p><%= li %></p></span></li>
         <% }); %>
         </ul>
         <span class="caretnext">›</span>
@@ -114,23 +114,17 @@
   <section id="product-reviews">
     <span class="review-header">Customer Reviews</span><br>
     <a href="#"><%= product.reviews().length %> customer reviews</a><br>
-    Average Rating: <%= product.averageStars() %> / 5.0<br><br>
+    Average Rating: <%= product.averageStars() %> / 5.0<br><br><br>
 
-
-    <% for (var idx = 0; idx < product.reviews().length; idx++) { %>
-      <% if (idx != 0) { %>
-        <%= "<br><br><br><br>" %>
-      <% } %>
-
-      <% var li = product.reviews()[idx]; %>
-      <li><br>
-        <strong>Rating:</strong> li.escape("stars") / 5 |
-        <strong>li.escape("title")<br></strong>
-        By: li.user().escape("name") on li.escape("created_at")<br><br>
-        li.escape("body")
+    <% product.reviews().each(function (li) { %>
+      <li>
+        <strong>Rating:</strong> <%= li.escape("stars") %> / 5 |
+        <strong><%= li.escape("title") %><br></strong>
+        By: <%= li.escape("user_name") %> on <%= li.escape("created_at") %><br><br>
+        <%= li.escape("body") %>
       </li>
-
-    <% }; %>
+      <%= "<br><br><br><br>" %>
+    <% }); %>
 
   </section>
 </section>

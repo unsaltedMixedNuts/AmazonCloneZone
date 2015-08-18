@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :create, :show]
   resources :questions, only: [:create]
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     resources :products, only: [:index, :show]
+    resources :reviews, only: [:create]
   end
 end
