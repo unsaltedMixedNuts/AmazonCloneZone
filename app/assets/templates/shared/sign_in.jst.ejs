@@ -1,0 +1,45 @@
+<section class="sign-in-wrapper">
+  <section class="top-slots group">
+    <section class="logo-top-slot">
+      <a href="#"><img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png"></a>
+    </section>
+    <a href="#"><span class="links-top-slot generic-link">Shopping Cart</span></a>
+  </section>
+
+  <section class="center-slots">
+    <span class="flash-errors">
+      flash[:errors].html_safe<br><br>
+    </span>
+
+    <form>
+
+      <h2><strong>Sign In</strong></h2>
+      <br>
+      <a href="#" class="generic-link">Don't have an Amazon Clone Zone account?  Sign Up!</a><br><br>
+      <h3>What is your e-mail and password?</h3>
+
+      <label>
+        Email:<br>
+        <input type="text" name="user[email]" value="">
+      </label>
+      <br><br><br>
+
+      <label>
+        Password:<br>
+        <input type="password" name="user[password]">
+      </label>
+      <br><br>
+
+      <button class="generic-button">Sign in</button>
+    </form>
+  </section>
+
+  <section class="bottom-slots">
+    <form>
+      <input type="hidden" name="user[email]" value="abc@xyz.com">
+      <input type="hidden" name="user[password]" value="top secret">
+      <section class="callout-1">Don't feel like filling out a form?</section>
+      <button class="guest-sign-in-button">Sign In As A Guest</button>
+    </form>
+  </section>
+</section>

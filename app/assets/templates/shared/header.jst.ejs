@@ -18,12 +18,13 @@
 
         <% if(AmazonCloneZone.currentUser.isSignedIn()) { %>
           <li>Signed in as: <%= AmazonCloneZone.currentUser.name() %>
-            <form action="" method="">
-              <button>Not <%= AmazonCloneZone.currentUser.name() %>? Sign Out</button>
-            </form>
+            <br>
+              <a href="#" id="sign-out-link"
+                <p>Not <%= AmazonCloneZone.currentUser.name() %>? Sign Out</p>
+              </a>
           </li>
         <% } else { %>
-          <li><a href="#">Sign In</a></li>
+          <li><a href="#session/new">Sign In</a></li>
           <li><a href="#">Sign Up</a></li>
         <% } %>
 
