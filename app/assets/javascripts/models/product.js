@@ -15,7 +15,6 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
 
     var averageStars = (totalStars / numOfReviews);
     return averageStars;
-    // return "[AVERAGE STARS HERE]";
   },
 
   deliveryEstimate: function () {
@@ -71,6 +70,23 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
         var description = response.descriptions[index];
         this.descriptions(description);
       }
+
+      delete response.descriptions
+    }
+
+    if (response.specs) {
+      var length = response.specs.length;
+      for (var index = 0; index < length; index++) {
+        var spec = response.specs[index];
+        this.specs(spec);
+      }
+
+      delete response.specs;
+    }
+
+    if (response.questions) {
+      this.questions().set(response.questions);
+      delete response.questions;
     }
 
     if (response.reviews) {
@@ -94,7 +110,11 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
   },
 
   questions: function () {
-    return [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9]
+    if (!this._questions) {
+      this._questions = new AmazonCloneZone.Collections.Questions();
+    }
+
+    return this._questions;
   },
 
   reviews: function () {
@@ -103,11 +123,19 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
     }
 
     return this._reviews;
-
-    // return ["reviews"];
   },
 
-  specifications: function () {
-    return ["spec_1", "spec_2"];
+  specs: function (spec) {
+    if (spec) {
+      if (this._specs) {
+        this._specs.push(spec);
+      } else {
+        this._specs = [spec];
+      }
+
+      return this._specs;
+    } else {
+      return this._specs || [];
+    }
   }
 });

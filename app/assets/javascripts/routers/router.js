@@ -1,6 +1,6 @@
 AmazonCloneZone.Routers.Router = Backbone.Router.extend({
-  initialize: function () {
-    this.$rootEl = $("#backbone-section");
+  initialize: function (options) {
+    this.$rootEl = options.$rootEl;
   },
 
   routes: {

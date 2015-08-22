@@ -63,12 +63,10 @@
 
   <section id="product-details">
     <h2><strong>Product Description</strong></h2>
-      <% product.specifications().forEach(function (li) { %>
-        <% if ('li.escape("title")' != "Customer Reviews") { %>
-          <li>
-            <strong>li.escape("title"):</strong>li.escape("body")
-          </li>
-        <% } %>
+      <% product.specs().forEach(function (li) { %>
+        <li>
+          <strong><%= li.title %>: </strong><%= li.body %>
+        </li>
       <% }); %>
   </section>
 
@@ -89,9 +87,9 @@
     </section>
 
     <ul>
-      <% product.questions().forEach(function (q) { %>
+      <% product.questions().each(function (q) { %>
         <li>
-          <span class="question">q.escape("body")</span><br>
+          <span class="question"><%= q.escape("body") %></span><br>
           <section class="group">
             <span class="answer-sym">A:</span>
 

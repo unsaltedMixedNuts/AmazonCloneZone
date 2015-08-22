@@ -7,3 +7,17 @@ unless reviews.nil?
     json.partial!("api/reviews/review", review: review)
   end
 end
+
+questions ||= nil
+unless questions.nil?
+  json.questions(questions) do |question|
+    json.partial!("api/questions/question", question: question)
+  end
+end
+
+specs ||= nil
+unless specs.nil?
+  json.specs(specs) do |spec|
+    json.partial!("api/specifications/specification", spec: spec)
+  end
+end

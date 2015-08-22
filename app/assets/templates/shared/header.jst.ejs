@@ -1,0 +1,37 @@
+<section class="all">
+  <header class="navigation-header">
+    <span class="header-row-1 group">
+      <span class="logo-span-header">
+        <a href="#">
+          <img class="logo" src="/assets/amazon_clone_zone_logo.png">
+        </a>
+      </span>
+
+      <form>
+        <input class="search" type="text" placeholder="Search">
+      </form>
+    </span>
+
+    <span class="header-row-2 group">
+      <ul class="header-list">
+        <li><a href="#">Home</a></li>
+
+        <% if(AmazonCloneZone.currentUser.isSignedIn()) { %>
+          <li>Signed in as: <%= AmazonCloneZone.currentUser.name() %>
+            <form action="" method="">
+              <button>Not <%= AmazonCloneZone.currentUser.name() %>? Sign Out</button>
+            </form>
+          </li>
+        <% } else { %>
+          <li><a href="#">Sign In</a></li>
+          <li><a href="#">Sign Up</a></li>
+        <% } %>
+
+        <li><a href="#">Shopping Cart</a></li>
+
+        <% if(AmazonCloneZone.currentUser.isSignedIn()) { %>
+          <li><a href="#">Your Orders</a></li>
+        <% } %>
+      </ul>
+    <span>
+  </header>
