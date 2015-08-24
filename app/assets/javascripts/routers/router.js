@@ -6,7 +6,15 @@ AmazonCloneZone.Routers.Router = Backbone.Router.extend({
   routes: {
     "":"productsIndex",
     "products/:id": "productsShow",
-    "session/new": "signIn"
+    "session/new": "signIn",
+    "users/new": "new"
+  },
+
+  new: function () {
+    if (!this._requireSignedOut()) { return; }
+    var model = new AmazonCloneZone.Models.User();
+    var view = new AmazonCloneZone.Views.UsersCreate({ model: model });
+    this._swapView(view);
   },
 
   productsIndex: function () {

@@ -1,0 +1,72 @@
+<section class="sign-in-wrapper">
+  <section class="top-slots group">
+    <section class="logo-top-slot">
+      <a href="#"><img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png"></a>
+    </section>
+    <a href="#guest-sign-in-button"><span class="links-top-slot generic-link">Sign In As A Guest</span></a>
+  </section>
+
+  <section class="center-slots">
+    <span class="flash-errors">
+      flash[:errors].join("<br>").html_safe
+    </span>
+
+    <form>
+
+      <h2><strong>Registration</strong></h2><br>
+      <h3>New to AmazonCloneZone.com?</h3><h3>Register Below or
+        <a href="#"><span class="generic-link">Sign In As A Guest.</span></a>
+      </h3><br>
+
+      <table class="registration-table">
+        <tr>
+          <td class="registration-label">My name is:</td>
+          <td>
+            <input type="text" name="user[name]" value="<%= user.name() %>">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="registration-label">My email address is:</td>
+          <td>
+            <input type="text" name="user[email]" value="<%= user.escape("email") %>">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="registration-label">Type it again:</td>
+          <td>
+            <input type="text" name="user[email_2]">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="registration-label"><br>Enter a new password:</td>
+          <td>
+            <br><input type="password" name="user[password]">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="registration-label">Type it again:</td>
+          <td>
+            <input type="password" name="user[password_2]">
+          </td>
+        </tr>
+      </table><br>
+      <button class="generic-button">Create account</button><br><br>
+
+      <p class="fine-print">By creating an account, you agree that Amazon Clone Zone is your new favorite website.</p>
+    </form>
+  </section>
+
+  <section class="bottom-slots">
+    <form>
+      <input type="hidden" name="user[email]" value="abc@xyz.com">
+      <input type="hidden" name="user[password]" value="top secret">
+      <section class="callout-1">Don't feel like filling out a form?</section>
+      <!-- <section class="callout-2">Sign in as a guest user</section> -->
+      <button class="guest-sign-in-button" id="guest-sign-in-button">Sign In As A Guest</button>
+    </form>
+  </section>
+</section>
