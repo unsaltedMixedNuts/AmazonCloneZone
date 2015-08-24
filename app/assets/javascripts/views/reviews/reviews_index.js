@@ -1,5 +1,5 @@
-AmazonCloneZone.Views.QuestionsIndex = Backbone.View.extend({
-  template: JST["questions/index"],
+AmazonCloneZone.Views.ReviewsIndex = Backbone.View.extend({
+  template: JST["reviews/index"],
 
   events: {
     "submit form": "submitNewReview"
