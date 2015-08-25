@@ -1,6 +1,6 @@
-AmazonCloneZone.Collections.Reviews = Backbone.Collection.extend({
-  model: AmazonCloneZone.Models.Review,
-  url: "/api/reviews",
+AmazonCloneZone.Collections.Answers = Backbone.Collection.extend({
+  model: AmazonCloneZone.Models.Answer,
+  url: "/api/answers",
 
   getOrFetch: function (id) {
     var model = this.get(id);
@@ -9,7 +9,7 @@ AmazonCloneZone.Collections.Reviews = Backbone.Collection.extend({
     if (model) {
       model.fetch();
     } else {
-      model = new AmazonCloneZone.Models.Review({ id: id });
+      model = new AmazonCloneZone.Models.Answer({ id: id });
       model.fetch({
         success: function () {
           collection.add(model);

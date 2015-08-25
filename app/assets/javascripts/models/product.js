@@ -64,6 +64,7 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
   },
 
   parse: function (response) {
+    // ----------DESCRIPTIONS----------
     if (response.descriptions) {
       var length = response.descriptions.length;
       for (var index = 0; index < length; index++) {
@@ -74,6 +75,7 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
       delete response.descriptions
     }
 
+    // ----------SPECS----------
     if (response.specs) {
       var length = response.specs.length;
       for (var index = 0; index < length; index++) {
@@ -84,11 +86,13 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
       delete response.specs;
     }
 
+    // ----------QUESTIONS----------
     if (response.questions) {
-      this.questions().set(response.questions);
+      this.questions().set(response.questions, { parse: true });
       delete response.questions;
     }
 
+    // ----------REVIEWS----------
     if (response.reviews) {
       this.reviews().set(response.reviews);
       delete response.reviews;

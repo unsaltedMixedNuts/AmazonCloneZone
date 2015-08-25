@@ -8,7 +8,6 @@ AmazonCloneZone.Views.ReviewsIndex = Backbone.View.extend({
   initialize: function (options) {
     this.product = options.product;
     this.listenTo(this.product.reviews(), "add", this.render)
-
   },
 
   render: function () {
