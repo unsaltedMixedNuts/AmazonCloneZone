@@ -4,7 +4,7 @@
   <span class="flash-errors"> flash[:errors].html_safe if flash[:errors]</span>
   <form class="ask-question-form">
     <input class="ask-question-input" type="text" name="question[body]" placeholder="Have a question? Ask the owners here.">
-    <input type="hidden" name="question[product_id]" value="@product.id">
+    <input type="hidden" name="question[product_id]" value="<%= product.id %>">
     <button class="ask-question-button">Ask</button>
   </form>
 </section>
@@ -17,12 +17,12 @@
         <span class="answer-sym">A:</span>
 
         <span class="answers">
-          q.answers().each(function (a) {
-            a.escape("body")<br>
+          <% q.answers().each(function (a) { %>
+            <%= a.escape("body") %><br>
             <span class="ask-author-and-date">
-              a.user.name answered on a.created_at.strftime( "%B %e, %Y")<br>
+              <%= a.escape("user_name") %> answered on <%= a.escape("created_at") %><br>
             </span>
-          })
+          <% }) %>
         </span>
 
       </section>

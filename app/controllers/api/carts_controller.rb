@@ -7,6 +7,6 @@ class Api::CartsController < ApplicationController
     else
       get_or_set_cart
     end
-    render json: @cart
+    render :show
   end
 end

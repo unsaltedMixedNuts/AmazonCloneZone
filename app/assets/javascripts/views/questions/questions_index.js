@@ -16,7 +16,7 @@ AmazonCloneZone.Views.QuestionsIndex = Backbone.View.extend({
     return this;
   },
 
-  submitNewReview: function (event) {
+  submitNewQuestion: function (event) {
     event.preventDefault();
     var params = $(event.currentTarget).serializeJSON()["question"];
     var newQuestion = new AmazonCloneZone.Models.Question(params);

@@ -1,0 +1,52 @@
+<section class="cart">
+  <section class="shopping-cart-items group">
+    <h2>Shopping Cart # <%= cart.id %></h2>
+    <section class="checkout">
+      <h3>Subtotal ( cart.numItems item(s) ): $ cart.subtotal</h3>
+      <a href="#"><p class="cart-button">Proceed to checkout</p></a>
+
+    </section>
+
+    <section class="items">
+      <table>
+        <tr>
+          <th class="cart-name-col"></th>
+          <th class="cart-price-col">Price</th>
+          <th class="cart-qty-col">Quantity</th>
+        </tr>
+
+        <% cart.items().each(function (item) { %>
+          <tr class="table-row-cart-item">
+            <td>
+              <section class="cart-row group">
+                <a href="#">
+                  <section class="cart-image-holder group">
+                  <img src="<%= item.escape("image_url") %>" class="image">
+                  </section>
+                </a>
+                <section class="cart-content">
+                  <a class="generic-link" href="#"><strong><%= item.escape("name") %></a></strong> by <%= item.escape("brand") %><br>
+                  In Stock<br>
+                  FREE Shipping<br>
+                  <form>
+                    <input type="hidden" name="item[id]" value="<%= item.id %>">
+                    <button>Delete</button>
+                  </form>
+                </section>
+              </section>
+            </td>
+
+            <td class="price">$ <%= item.escape("price") %></td>
+            <td class="qty"><%= item.escape("quantity") %></td>
+          </tr>
+        <% }) %>
+      </table><br>
+
+      <section class="subtotal">
+          Subtotal ( cart.numItems item(s) ): $ cart.subtotal
+      </section>
+    </section>
+
+  </section>
+
+</section>

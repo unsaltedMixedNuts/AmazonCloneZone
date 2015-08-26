@@ -15,5 +15,7 @@ AmazonCloneZone.Models.Question = Backbone.Model.extend({
       this.answers().set(response.answers);
       delete response.answers;
     }
+
+    return response;
   }
 });

@@ -7,7 +7,16 @@ AmazonCloneZone.Routers.Router = Backbone.Router.extend({
     "":"productsIndex",
     "products/:id": "productsShow",
     "session/new": "signIn",
-    "users/new": "new"
+    "users/new": "new",
+    "cart": "cartShow",
+  },
+
+  cartShow: function () {
+    var collection = new AmazonCloneZone.Collections.Carts();
+    // var model = collection.getOrFetch(AmazonCloneZone.currentUser.escape("cart_id"));
+    var model = collection.getOrFetch(1);
+    var view = new AmazonCloneZone.Views.CartShow({ model: model });
+    this._swapView(view);
   },
 
   new: function () {
