@@ -1,5 +1,6 @@
 AmazonCloneZone.Models.Cart = Backbone.Model.extend({
-  urlRoot: "/api/carts",
+  url: "/api/cart",
+  urlRoot: "/api/cart",
 
   items: function () {
     if (!this._items) {

@@ -14,7 +14,9 @@ AmazonCloneZone.Routers.Router = Backbone.Router.extend({
   cartShow: function () {
     var collection = new AmazonCloneZone.Collections.Carts();
     // var model = collection.getOrFetch(AmazonCloneZone.currentUser.escape("cart_id"));
-    var model = collection.getOrFetch(1);
+    // var model = collection.getOrFetch(1);
+    var model = new AmazonCloneZone.Models.Cart();
+    model.fetch();
     var view = new AmazonCloneZone.Views.CartShow({ model: model });
     this._swapView(view);
   },
