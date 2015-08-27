@@ -1,0 +1,166 @@
+<section class="checkout-header">
+
+  <section class="checkout-header-left">
+    <a href="#">
+      <img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png">
+    </a>
+  </section>
+
+  <section class="checkout-header-right">
+    <img class="lock-picture" src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/checkout/truespc/secured-ssl._V342551765_.png">
+  </section>
+
+  <section class="checkout-header-center">
+    <h1>
+      Checkout (<a class="generic-link" href="#cart">
+        <%= cart.numItems() %>
+        <%= cart.pluralize(cart.numItems(), "item") %>
+      </a>)
+    </h1>
+  </section>
+
+</section>
+
+
+<section class="checkout-sidebar">
+
+  <form id="guest-checkout">
+
+    <input type="hidden" name="order[full_name]" value="Guest User">
+    <input type="hidden" name="order[address_line_1]" value="57 E 57th St">
+    <input type="hidden" name="order[address_line_2]" value="New York, NY 10022">
+    <input type="hidden" name="order[payment_method]" value="debit / credit card">
+
+    <section class="callout-2">
+      Don't wanna fill out the shipping and payment information below?
+    </section>
+
+    <button class="cart-button">
+      Click here to pay with some guy named Guest User's credit card.  He's OK with this.
+    </button><br>
+  </form>
+</section>
+
+
+<section class="checkout-slots">
+  <section class="flash-errors checkout-errors">
+    flash[:errors].join("<br>").html_safe if flash[:errors]
+  </section>
+
+  <form id="normal-checkout">
+
+    <section class="checkout-borders">
+      <section class="top-checkout-slots group">
+        <span class="checkout-numbering">1</span>
+        <span>Shipping Address</span>
+
+        <table class="checkout-table">
+          <tr>
+            <td class="checkout-label">Full Name</td>
+            <td>
+              <input type="text" name="order[full_name]">
+            </td>
+          </tr>
+
+          <tr>
+            <td class="checkout-label">
+              Street Address &amp Apartment
+            </td>
+            <td>
+              <input type="text" name="order[address_line_1]">
+            </td>
+          </tr>
+
+          <tr>
+            <td class="checkout-label">
+              City, State, and Zip
+            </td>
+            <td>
+              <input type="text" name="order[address_line_2]">
+            </td>
+          </tr>
+        </table>
+      </section>
+    </section>
+
+    <section class="checkout-borders">
+      <section class="center-checkout-slots group">
+        <span class="checkout-numbering">2</span>
+        <span>Payment Method</span>
+        <input type="hidden" name="order[payment_method]" value="debit / credit card">
+
+        <table class="checkout-table">
+          <tr>
+            <td class="checkout-label">Card Number</td>
+            <td><input type="text"></td>
+          </tr>
+
+          <tr>
+            <td class="checkout-label">Name On Card</td>
+            <td><input type="text"></td>
+          </tr>
+
+          <tr>
+            <td class="checkout-label">Expiration Date</td>
+            <td>
+              <select>
+                <% for (var month = 1; month < 13; month ++) { %>
+                  <option><%= month %></option>
+                <% } %>
+              </select>
+
+              <select>
+                <% for (var year = 2015; year < 2036; year ++) { %>
+                  <option><%= year %></option>
+                <% } %>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </section>
+
+    <section class="bottom-checkout-slots">
+      <% cart.items().each(function (item) { %>
+        <section class="checkout-item-row group">
+          <section class="checkout-product-picture">
+            <img src="<%= item.escape("image_url") %>">
+          </section>
+
+          <section class="checkout-product-info">
+
+            <span class="checkout-generic-important-font">
+              <%= item.escape("name") %>
+            </span><br>
+
+            <span class="checkout-generic-font">
+              by: <%= item.escape("brand") %>
+            </span><br>
+
+            <span class="checkout-product-price">
+              $<%= item.escape("price") %>
+            </span><br>
+
+            <span class="checkout-generic-font">
+              Sold by: AmazonCloneZone.com
+            </span><br>
+
+            <span class="checkout-generic-important-font">
+              Quantity: <%= item.escape("quantity") %>
+            </span>
+          </section>
+        </section>
+      <% }) %>
+
+      <section class="place-order-section">
+        <span class="generic-price-styling">
+
+          <button class="cart-button">Place your order</button>
+
+          Order total: $<%= cart.subtotal() %>
+
+        </span>
+      </section>
+    </section>
+  </form>
+</section>

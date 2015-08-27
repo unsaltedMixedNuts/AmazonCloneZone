@@ -17,7 +17,7 @@ class Api::OrdersController < ApplicationController
       render json: @order
     else
       flash[:errors] = @order.errors.full_messages
-      render json: @order
+      render json: @order.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -26,7 +26,7 @@ class Api::OrdersController < ApplicationController
     if @order.user.id == current_user.id
       render json: @order
     else
-      render json: "error error error | we need to fix this"
+      render json: "error error error | we need to fix this", status: :unprocessable_entity
     end
   end
 

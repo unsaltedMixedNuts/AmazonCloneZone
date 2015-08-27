@@ -13,8 +13,8 @@ AmazonCloneZone.Views.CartShow = Backbone.View.extend({
   delete: function (event) {
     event.preventDefault();
     var itemId = $(event.currentTarget).serializeJSON().item.id;
-    this.model.items().remove({ id: itemId });
-    this.model.items().getOrFetch(itemId).destroy();
+    var thingToRemoveAndDestroy = this.model.items().get(itemId);
+    thingToRemoveAndDestroy.destroy();
   },
 
   render: function () {

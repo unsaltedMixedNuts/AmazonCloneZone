@@ -9,15 +9,20 @@ AmazonCloneZone.Routers.Router = Backbone.Router.extend({
     "session/new": "signIn",
     "users/new": "new",
     "cart": "cartShow",
+    "checkout": "checkout",
+    "orders": "ordersIndex",
+    "orders/:id": "orderShow"
   },
 
   cartShow: function () {
-    var collection = new AmazonCloneZone.Collections.Carts();
-    // var model = collection.getOrFetch(AmazonCloneZone.currentUser.escape("cart_id"));
-    // var model = collection.getOrFetch(1);
-    var model = new AmazonCloneZone.Models.Cart();
-    model.fetch();
-    var view = new AmazonCloneZone.Views.CartShow({ model: model });
+    AmazonCloneZone.cart.fetch();
+    var view = new AmazonCloneZone.Views.CartShow({ model: AmazonCloneZone.cart });
+    this._swapView(view);
+  },
+
+  checkout: function () {
+    AmazonCloneZone.cart.fetch();
+    var view = new AmazonCloneZone.Views.Checkout({ model: AmazonCloneZone.cart });
     this._swapView(view);
   },
 
@@ -25,6 +30,19 @@ AmazonCloneZone.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedOut()) { return; }
     var model = new AmazonCloneZone.Models.User();
     var view = new AmazonCloneZone.Views.UsersCreate({ model: model });
+    this._swapView(view);
+  },
+
+  ordersIndex: function () {
+    AmazonCloneZone.Collections.orders.fetch();
+    var view = new AmazonCloneZone.Views.OrdersIndex({ collection: AmazonCloneZone.Collections.orders });
+    this._swapView(view);
+  },
+
+  orderShow: function (id) {
+    var order = AmazonCloneZone.Collections.orders.getOrFetch(id);
+    order.fetch();
+    var view = new AmazonCloneZone.Views.OrderShow({ model: order });
     this._swapView(view);
   },
 

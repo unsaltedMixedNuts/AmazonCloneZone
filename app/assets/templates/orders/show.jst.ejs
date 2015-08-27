@@ -1,0 +1,77 @@
+
+<section class="order-show-section">
+
+  <h2 class="callout-1">flash[:notice].titleize if flash[:notice]</h2>
+
+  <section class="order-index-sections">
+    <table class="order-table">
+
+      <tr>
+        <th colspan="2" class="callout-2"><h3>Order # <%= order.escape("order_number") %></h3></th>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>Estimated Delivery:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= order.estimatedDeliveryDate() %></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>Ship To:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= order.escape("full_name") %></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>Street Address:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= order.escape("address_line_1") %></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>City, State, Zip:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= order.escape("address_line_2") %></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>Order Submitted:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= order.creationDate() %></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="order-table-left">
+          <h3>Payment Method:</h3>
+        </td>
+
+        <td class="order-table-right">
+          <h3><%= order.escape("payment_method") %></h3>
+        </td>
+      </tr>
+
+
+    </table>
+  </section>
+
+</section>

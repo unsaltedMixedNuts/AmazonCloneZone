@@ -1,9 +1,13 @@
 <section class="cart">
   <section class="shopping-cart-items group">
-    <h2>Shopping Cart # <%= cart.id %></h2>
+    <h2>Shopping Cart # <%= cart.get("id") %></h2>
     <section class="checkout">
-      <h3>Subtotal ( cart.numItems item(s) ): $ cart.subtotal</h3>
-      <a href="#"><p class="cart-button">Proceed to checkout</p></a>
+      <h3>Subtotal (<%= cart.numItems() %> <%= cart.pluralize(cart.numItems(), "item") %>): $<%= cart.subtotal() %></h3>
+      <% console.log("CART") %>
+      <% console.log(cart); %>
+      <% console.log("CART ATTRIBUTES") %>
+      <% console.log(cart.attributes); %>
+      <a href="#checkout"><p class="cart-button">Proceed to checkout</p></a>
 
     </section>
 
@@ -43,7 +47,7 @@
       </table><br>
 
       <section class="subtotal">
-          Subtotal ( cart.numItems item(s) ): $ cart.subtotal
+          Subtotal (<%= cart.numItems() %> <%= cart.pluralize(cart.numItems(), "item") %>): $<%= cart.subtotal() %>
       </section>
     </section>
 
