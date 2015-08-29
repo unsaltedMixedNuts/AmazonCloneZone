@@ -9,42 +9,83 @@
 
     <section class="carousel-product-feed-1">
       <h1>Suggested Products</h1>
-      <ul>
-        <% products.each(function (product) { %>
-          <a href="#/products/<%=product.escape("id")%>">
-            <li>
-              <%= product.escape("name") %>
-            </li>
+
+      <section class="section-for-product-images">
+        <% if (products.models[0]) { %>
+          <a href="#/products/<%= products.models[0].id %>">
+            <span class="product-image-span">
+                <img class="product-image" src="<%= products.models[0].attributes.image_urls[0] %>">
+            </span>
           </a>
-        <% });%>
-      </ul>
+        <% } %>
+
+        <% if (products.models[1]) { %>
+          <a href="#/products/<%= products.models[1].id %>">
+            <span class="product-image-span">
+                <img class="product-image" src="<%= products.models[1].attributes.image_urls[0] %>">
+            </span>
+          </a>
+        <% } %>
+
+        <% if (products.models[2]) { %>
+          <a href="#/products/<%= products.models[2].id %>">
+            <span class="product-image-span">
+                <img class="product-image" src="<%= products.models[2].attributes.image_urls[0] %>">
+            </span>
+          </a>
+        <% } %>
+      </section>
+
     </section>
 
     <section class="carousel-product-feed-1">
       <h1>Best Sellers</h1>
-      <ul>
-          <% products.each(function (product) { %>
-            <a href="#/products/<%=product.escape("id")%>">
-              <li>
-                <%= product.escape("name") %>
-              </li>
-            </a>
-          <% });%>
-      </ul>
+
+      <section class="section-for-product-images">
+        <% if (products.models[3]) { %>
+          <a href="#/products/<%= products.models[3].id %>">
+            <span class="product-image-span">
+                <img class="product-image" src="<%= products.models[3].attributes.image_urls[0] %>">
+            </span>
+          </a>
+        <% } %>
+
+        <% if (products.models[5]) { %>
+          <a href="#/products/<%= products.models[5].id %>">
+            <span class="product-image-span">
+                <img class="product-image" src="<%= products.models[5].attributes.image_urls[0] %>">
+            </span>
+          </a>
+        <% } %>
+
+        <% if (products.models[4]) { %>
+          <a href="#/products/<%= products.models[4].id %>">
+            <span class="product-image-span">
+                <img class="product-image" src="<%= products.models[4].attributes.image_urls[0] %>">
+            </span>
+          </a>
+        <% } %>
+
+      </section>
+
     </section>
 
   </section>
 
   <section class="sidebar">
     <h1>Top Brands</h1>
-    <ul>
-      <% products.each(function (product) { %>
-        <a href="#/products/<%=product.escape("id")%>">
-          <li>
-            <%= product.escape("name") %>
-          </li>
-        </a>
-      <% });%>
-    </ul>
+
+    <section class="sidebar-images">
+      <a href="#/products/1">
+        <img src="/assets/brand_logos/apple_logo_blue.png">
+      </a>
+      <a href="#/products/3">
+        <img src="/assets/brand_logos/chrome_logo.png">
+      </a>
+      <a href="#/products/2">
+        <img src="/assets/brand_logos/roku_logo.png">
+      </a>
+    </section>
+
   </section>
 </section>

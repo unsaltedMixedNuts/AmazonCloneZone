@@ -39,8 +39,10 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
 
   descriptions: function (description) {
     if (description) {
-      if (this._descriptions) {
-        this._descriptions.push(description);
+      if (this._descriptions){
+        if (this._descriptions.indexOf(description) === -1) {
+          this._descriptions.push(description);
+        }
       } else {
         this._descriptions = [description];
       }
@@ -130,9 +132,14 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
   },
 
   specs: function (spec) {
+    var that = this;
     if (spec) {
       if (this._specs) {
-        this._specs.push(spec);
+        if (this._specs.every(function(_spec) {
+          return _spec.title != spec.title && _spec.body != spec.body;
+        })) {
+          that._specs.push(spec);
+        }
       } else {
         this._specs = [spec];
       }
