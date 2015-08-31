@@ -1,39 +1,64 @@
 
   <span class="review-header">Customer Reviews</span><br>
-  <a href="#"><%= product.reviews().length %> customer reviews</a><br>
-  Average Rating: <%= product.averageStars() %> / 5.0<br><br><br>
+  <a href="#product-reviews"><%= product.reviews().length %> customer reviews</a><br>
+  Average Rating: <%= product.averageStars() %> / 5.0
 
+  <section class="review-form-section">
+    <span class="review-header-two">Write a customer review</span><br><br>
+    <form>
+      <section class="stars-span">
+        <label>
+          Rating / Stars:
+          <select name="review[stars]">
+            <option value="0"></option>
+            <% for (var stars = 1; stars < 6; stars++) { %>
+              <option value="<%= stars %>"><%= stars %></option>
+            <% }; %>
+          </select>
+        </label>
+      </section>
+      <br>
+      <input type="hidden" name="review[product_id]" value="<%= product.get("id") %>">
+      <input type="hidden" name="review[user_name]" value="<%= AmazonCloneZone.currentUser.name() %>">
+      <input class="ask-question-input" type="text" name="review[title]" placeholder="Insert a title for your review here.">
+      <br><br>
+      <input id="review-input" class="answer-question-input" type="text" name="review[body]" placeholder="Write your review here.">
+      <button class="answer-question-button">Submit Review</button>
+    </form>
+  </section>
 
-  <form>
-    <section class="stars-span">
-      <label>
-        Rating / Stars:
-        <select name="review[stars]">
-          <% for (var stars = 1; stars < 6; stars++) { %>
-            <option value="<%= stars %>"><%= stars %></option>
-          <% }; %>
-        </select>
-      </label>
-    </section>
-    <br>
-    <input type="hidden" name="review[product_id]" value="<%= product.get("id") %>">
-    <input type="hidden" name="review[user_name]" value="<%= AmazonCloneZone.currentUser.name() %>">
-    <input class="ask-question-input" type="text" name="review[title]" placeholder="Review Title">
-    <br><br>
-    <!-- <textarea name="review[body]" placeholder="Review Content / Body!"></textarea> -->
-    <input class="answer-question-input" type="text" name="review[body]" placeholder="Review Content / Body!">
-    <button class="answer-question-button">Submit Review</button>
-  </form>
-  <br><br>
+  <ul class="review-ul">
+    <% product.reviews().each(function (li) { %>
+      <li class="review-li">
+        <strong>Rating:</strong> <%= li.escape("stars") %> / 5 |
+        <strong><%= li.escape("title") %><br></strong>
+        By: <%= li.escape("user_name") %> on <%= li.escape("created_at") %><br><br>
+        <%= li.escape("body") %>
+      </li>
+    <% }); %>
+  </ul>
 
-  <% product.reviews().each(function (li) { %>
-    <li>
-      <strong>Rating:</strong> <%= li.escape("stars") %> / 5 |
-      <strong><%= li.escape("title") %><br></strong>
-      By: <%= li.escape("user_name") %> on <%= li.escape("created_at") %><br><br>
-      <%= li.escape("body") %>
-    </li>
-    <%= "<br><br><br><br>" %>
-  <% }); %>
-
-</section>
+  <span id="flash-errors-for-reviews" class="flash-errors"></span>
+  <section class="review-form-section">
+    <span class="review-header-two">Write a customer review</span><br><br>
+    <form>
+      <section class="stars-span">
+        <label>
+          Rating / Stars:
+          <select name="review[stars]">
+            <option value="0"></option>
+            <% for (var stars = 1; stars < 6; stars++) { %>
+              <option value="<%= stars %>"><%= stars %></option>
+            <% }; %>
+          </select>
+        </label>
+      </section>
+      <br>
+      <input type="hidden" name="review[product_id]" value="<%= product.get("id") %>">
+      <input type="hidden" name="review[user_name]" value="<%= AmazonCloneZone.currentUser.name() %>">
+      <input class="ask-question-input" type="text" name="review[title]" placeholder="Insert a title for your review here.">
+      <br><br>
+      <input id="review-input" class="answer-question-input" type="text" name="review[body]" placeholder="Write your review here.">
+      <button class="answer-question-button">Submit Review</button>
+    </form>
+  </section>
