@@ -35,7 +35,7 @@
       Don't wanna fill out the shipping and payment information below?
     </section>
 
-    <button class="cart-button">
+    <button id="guest-checkout-button" class="cart-button">
       Click here to pay with some guy named Guest User's credit card.  He's OK with this.
     </button><br>
   </form>
@@ -43,9 +43,6 @@
 
 
 <section class="checkout-slots">
-  <section class="flash-errors checkout-errors">
-    flash[:errors].join("<br>").html_safe if flash[:errors]
-  </section>
 
   <form id="normal-checkout">
 
@@ -154,6 +151,9 @@
 
       <section class="place-order-section">
         <span class="generic-price-styling">
+
+          <section class="flash-errors checkout-errors"></section>
+          <section class="checkout-errors-link"></section>
 
           <button class="cart-button">Place your order</button>
 

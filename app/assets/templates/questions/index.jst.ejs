@@ -28,7 +28,7 @@
         <span class="answers">
           <%= a.escape("body") %><br>
           <span class="ask-author-and-date">
-            <%= a.escape("user_name") %> answered on <%= a.escape("created_at") %><br><br>
+            <%= a.escape("user_name") %> answered on <%= a.creationDate() %><br><br>
           </span>
         </span>
       <% }) %>

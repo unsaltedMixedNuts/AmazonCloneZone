@@ -32,7 +32,7 @@
       <li class="review-li">
         <strong>Rating:</strong> <%= li.escape("stars") %> / 5 |
         <strong><%= li.escape("title") %><br></strong>
-        By: <%= li.escape("user_name") %> on <%= li.escape("created_at") %><br><br>
+        By: <%= li.escape("user_name") %> on <%= li.creationDate() %><br><br>
         <%= li.escape("body") %>
       </li>
     <% }); %>

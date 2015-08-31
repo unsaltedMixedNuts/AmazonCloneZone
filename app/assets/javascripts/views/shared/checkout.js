@@ -7,7 +7,8 @@ AmazonCloneZone.Views.Checkout = Backbone.View.extend({
 
   events: {
     "submit #guest-checkout": "checkoutAsGuest",
-    "submit #normal-checkout": "checkoutAsNormal"
+    "submit #normal-checkout": "checkoutAsNormal",
+    "click .guest-checkout-link": "clickGuestCheckoutButton"
   },
 
   checkoutAsGuest: function (event) {
@@ -30,8 +31,16 @@ AmazonCloneZone.Views.Checkout = Backbone.View.extend({
     newOrder.save([], {
       success: function () {
         Backbone.history.navigate("#orders/" + newOrder.id, { trigger: true })
+      },
+
+      error: function () {
+        $(".checkout-errors").html("Please fill out all fields above or<br><a class='generic-link guest-checkout-link'>checkout with Guest User's stored payment information.</a><br><br>");
       }
     });
+  },
+
+  clickGuestCheckoutButton: function (event) {
+    $("#guest-checkout-button").click();
   },
 
   render: function () {

@@ -4,7 +4,8 @@ class Api::OrdersController < ApplicationController
 
   def index
     @orders = Order.where("user_id = ?", current_user.id)
-    render json: @orders
+    # render json: @orders
+    render :index
   end
 
   def create
@@ -14,7 +15,8 @@ class Api::OrdersController < ApplicationController
     if @order.save
       cart.empty_cart
       flash[:notice] = "Your Order Has Been Placed Successfully!"
-      render json: @order
+      # render json: @order
+      render :show
     else
       flash[:errors] = @order.errors.full_messages
       render json: @order.errors.full_messages, status: :unprocessable_entity
@@ -24,7 +26,7 @@ class Api::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     if @order.user.id == current_user.id
-      render json: @order
+      render :show
     else
       render json: "error error error | we need to fix this", status: :unprocessable_entity
     end
