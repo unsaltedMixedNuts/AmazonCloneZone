@@ -1,12 +1,8 @@
 <section class="cart">
   <section class="shopping-cart-items group">
-    <h2>Shopping Cart # <%= cart.get("id") %></h2>
+    <h2>Shopping Cart</h2>
     <section class="checkout">
       <h3>Subtotal (<%= cart.numItems() %> <%= cart.pluralize(cart.numItems(), "item") %>): $<%= cart.subtotal() %></h3>
-      <% console.log("CART") %>
-      <% console.log(cart); %>
-      <% console.log("CART ATTRIBUTES") %>
-      <% console.log(cart.attributes); %>
       <a href="#checkout"><p class="cart-button">Proceed to checkout</p></a>
 
     </section>
@@ -23,13 +19,13 @@
           <tr class="table-row-cart-item">
             <td>
               <section class="cart-row group">
-                <a href="#">
+                <a href="#products/<%= item.escape("product_id") %>">
                   <section class="cart-image-holder group">
                   <img src="<%= item.escape("image_url") %>" class="image">
                   </section>
                 </a>
                 <section class="cart-content">
-                  <a class="generic-link" href="#"><strong><%= item.escape("name") %></a></strong> by <%= item.escape("brand") %><br>
+                  <a class="generic-link" href="#products/<%= item.escape("product_id") %>"><strong><%= item.escape("name") %></a></strong> by <%= item.escape("brand") %><br>
                   In Stock<br>
                   FREE Shipping<br>
                   <form>
