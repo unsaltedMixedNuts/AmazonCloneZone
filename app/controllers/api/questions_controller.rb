@@ -1,9 +1,13 @@
 class Api::QuestionsController < ApplicationController
   def create
-    @question = Question.new(question_params)
-    @question.user_id = current_user.id
-    @question.save
-    render json: @question
+    if signed_in?
+      @question = Question.new(question_params)
+      @question.user_id = current_user.id
+      @question.save
+      render json: @question
+    else
+      render json: "Please sign in to ask a question", status: :unprocessable_entity
+    end
   end
 
   def question_params

@@ -1,7 +1,7 @@
 <h2><strong>Customer Questions &amp Answers</strong></h2>
 
 <section class="ask-question-form-section">
-  <span class="flash-errors"> flash[:errors].html_safe if flash[:errors]</span>
+  <span class="flash-errors"></span>
   <form class="ask-question-form">
     <input class="ask-question-input" type="text" name="question[body]" placeholder="Have a question? Ask the owners here.">
     <input type="hidden" name="question[product_id]" value="<%= product.id %>">
@@ -12,18 +12,26 @@
 <ul>
   <% product.questions().each(function (q) { %>
     <li>
-      <span class="question"><%= q.escape("body") %></span><br>
       <section class="group">
+        <span class="answer-sym">Q:</span>
+        <span class="answers">
+          <span id="<%= q.id %>" class="question"><%= q.escape("body") %></span><br>
+        </span>
+      </section>
+
+      <section id="answer-form-<%= q.id %>"></section>
+
+      <section class="group">
+      <% q.answers().each(function (a) { %>
         <span class="answer-sym">A:</span>
 
         <span class="answers">
-          <% q.answers().each(function (a) { %>
-            <%= a.escape("body") %><br>
-            <span class="ask-author-and-date">
-              <%= a.escape("user_name") %> answered on <%= a.escape("created_at") %><br>
-            </span>
-          <% }) %>
+          <%= a.escape("body") %><br>
+          <span class="ask-author-and-date">
+            <%= a.escape("user_name") %> answered on <%= a.escape("created_at") %><br><br>
+          </span>
         </span>
+      <% }) %>
 
       </section>
     </li><br>

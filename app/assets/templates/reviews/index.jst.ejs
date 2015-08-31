@@ -5,22 +5,24 @@
 
 
   <form>
+    <section class="stars-span">
+      <label>
+        Rating / Stars:
+        <select name="review[stars]">
+          <% for (var stars = 1; stars < 6; stars++) { %>
+            <option value="<%= stars %>"><%= stars %></option>
+          <% }; %>
+        </select>
+      </label>
+    </section>
+    <br>
     <input type="hidden" name="review[product_id]" value="<%= product.get("id") %>">
     <input type="hidden" name="review[user_name]" value="<%= AmazonCloneZone.currentUser.name() %>">
-    <input type="text" name="review[title]" placeholder="Review Title">
-    <br>
-    <label>
-      Stars:
-      <select name="review[stars]">
-        <% for (var stars = 1; stars < 6; stars++) { %>
-          <option value="<%= stars %>"><%= stars %></option>
-        <% }; %>
-      </select>
-    </label>
-    <br>
-    <textarea name="review[body]" placeholder="Review Content / Body!"></textarea>
-    <br>
-    <button class="test">Submit Review</button>
+    <input class="ask-question-input" type="text" name="review[title]" placeholder="Review Title">
+    <br><br>
+    <!-- <textarea name="review[body]" placeholder="Review Content / Body!"></textarea> -->
+    <input class="answer-question-input" type="text" name="review[body]" placeholder="Review Content / Body!">
+    <button class="answer-question-button">Submit Review</button>
   </form>
   <br><br>
 

@@ -39,8 +39,8 @@
       by <%= product.escape("brand_name") %> <br><br>
 
       Rating: <%= product.averageStars() %> / 5.0<br>
-      <a href="#"><%= product.reviews().length %> customer reviews</a><br>
-      <a href="#"><%= product.questions().length %> answered questions</a><br><br>
+      <a href="#product-reviews"><%= product.reviews().length %> customer reviews</a><br>
+      <a href="#questions-answers"><%= product.questions().length %> answered questions</a><br><br>
 
       Price: <span class="big-price-color">$<%= product.price() %></span> &amp FREE Shipping<br><br>
       <span class="big-in-stock-color">In Stock.</span><br>
@@ -54,7 +54,7 @@
         <% }); %>
         </ul>
         <span class="caretnext">›</span>
-        <a href="#">See more product details</a>
+        <a href="#product-details">See more product details</a>
       </section>
 
     </section>

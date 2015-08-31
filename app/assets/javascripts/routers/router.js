@@ -12,6 +12,7 @@ AmazonCloneZone.Routers.Router = Backbone.Router.extend({
     "checkout": "checkout",
     "orders": "ordersIndex",
     "orders/:id": "orderShow"
+    // ":invalidFragmentedUrl": "productsIndex"
   },
 
   cartShow: function () {

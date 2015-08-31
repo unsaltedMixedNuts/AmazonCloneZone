@@ -14,7 +14,7 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
     })
 
     var averageStars = (totalStars / numOfReviews);
-    return averageStars;
+    return averageStars.toFixed(1);
   },
 
   deliveryEstimate: function () {
@@ -119,7 +119,6 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
     if (!this._questions) {
       this._questions = new AmazonCloneZone.Collections.Questions();
     }
-
     return this._questions;
   },
 
