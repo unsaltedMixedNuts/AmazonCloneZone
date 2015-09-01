@@ -41,7 +41,7 @@ AmazonCloneZone.Models.Cart = Backbone.Model.extend({
       subtotal += quantity * price
     });
 
-    return this.formatToCurrency(subtotal);
+    return parseFloat(this.formatToCurrency(subtotal)).toFixed(2);
   },
 
   formatToCurrency: function (number) {
