@@ -1,6 +1,8 @@
 # [AmazonCloneZone.com](http://amazonclonezone.com)
 
-Amazon Clone Zone is a single-page Backbone application inspired by Amazon.com. [Check it out live!](http://amazonclonezone.com)
+Amazon Clone Zone is a single-page Backbone application inspired by Amazon.com.
+
+[Check it out live!](http://amazonclonezone.com)
 
 ![screenshot](public/screenshot.png)
 
