@@ -5,7 +5,7 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
     var numOfReviews = this.reviews().length;
 
     if (numOfReviews == 0) {
-      return "Be the first to review this item";
+      return "<a href='#flash-errors-for-reviews'>Be the first to review this item</a>";
     }
 
     var totalStars = 0.0;
@@ -14,7 +14,7 @@ AmazonCloneZone.Models.Product = Backbone.Model.extend({
     })
 
     var averageStars = (totalStars / numOfReviews);
-    return averageStars.toFixed(1);
+    return averageStars.toFixed(1) + "/ 5.0";
   },
 
   deliveryEstimate: function () {

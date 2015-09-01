@@ -38,7 +38,7 @@
       <h2><%= product.escape("name") %></h2>
       by <%= product.escape("brand_name") %> <br><br>
 
-      Rating: <%= product.averageStars() %> / 5.0<br>
+      Rating: <%= product.averageStars() %><br>
       <a href="#product-reviews"><%= product.reviews().length %> customer reviews</a><br>
       <a href="#questions-answers"><%= product.questions().length %> answered questions</a><br><br>
 
@@ -112,7 +112,7 @@
   <section id="product-reviews">
     <span class="review-header">Customer Reviews</span><br>
     <a href="#"><%= product.reviews().length %> customer reviews</a><br>
-    Average Rating: <%= product.averageStars() %> / 5.0<br><br><br>
+    Average Rating: <%= product.averageStars() %><br><br><br>
 
     <% product.reviews().each(function (li) { %>
       <li>

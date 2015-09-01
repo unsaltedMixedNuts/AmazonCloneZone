@@ -1089,7 +1089,7 @@ Image.create(url: "http://ecx.images-amazon.com/images/I/51HU2L9nIRL._SL1000_.jp
 #
 #
 #
-# # Start of [PRODUCT TBD] Seed Data
+# # Start of Amazon Fire TV Seed Data
 # Description.create(
 #   body: "Amazon Fire TV is a tiny box you connect to your HDTV. It's the easiest way to enjoy over 250,000 TV episodes and movies on Netflix, Amazon Instant Video, and HBO GO, plus games, music, and more.",
 #   ord: nil,
@@ -1229,7 +1229,7 @@ Image.create(url: "http://ecx.images-amazon.com/images/I/51HU2L9nIRL._SL1000_.jp
 #   user_id: 1,
 #   product_id: 5
 # )
-# End of [PRODUCT TBD] Seed Data
+# End of Amazon Fire TV Seed Data
 
 
 
@@ -1238,20 +1238,86 @@ Image.create(url: "http://ecx.images-amazon.com/images/I/51HU2L9nIRL._SL1000_.jp
 
 
 
-# # Start of [PRODUCT TBD] Seed Data
-# Description.create(
-#   body: "",
-#   ord: nil,
-#   product_id:
-# )
-#
-# Specification.create(
-#   title: "",
-#   body: "",
-#   ord: nil,
-#   product_id:
-# )
-#
+# Start of Roku Streaming Stick Seed Data
+Description.create(
+  body: "Compact stick design. Plugs discreetly right into the HDMI port. Great for wall-mounted TVs.",
+  ord: nil,
+  product_id: 6
+)
+
+Description.create(
+  body: "2,000+ entertainment channels and counting. By far the most movies, sports, news, music and kids' shows of any streaming player.",
+  ord: nil,
+  product_id: 6
+)
+
+Description.create(
+  body: "Control with remote or mobile. You can choose to control your entertainment via your iOS or Android device. Or use the included remote that everybody can share. It's your choice.",
+  ord: nil,
+  product_id: 6
+)
+
+Description.create(
+  body: "Send to TV from mobile. Use mobile apps, such as Netflix and YouTube, to cast videos from your phone straight to your TV.",
+  ord: nil,
+  product_id: 6
+)
+
+Description.create(
+  body: "Stunning HD video quality. Immerse yourself in the action with rich, vibrant video streaming up to 1080p HD.",
+  ord: nil,
+  product_id: 6
+)
+
+Specification.create(
+  title: "Brand Name",
+  body: "Roku",
+  ord: nil,
+  product_id: 6
+)
+
+Specification.create(
+  title: "Item Weight",
+  body: "0.6 ounces",
+  ord: nil,
+  product_id: 6
+)
+
+Specification.create(
+  title: "Product Dimensions",
+  body: "3.1 x 1 x 0.4 inches",
+  ord: nil,
+  product_id: 6
+)
+
+Specification.create(
+  title: "Item Model Number",
+  body: "3500R",
+  ord: nil,
+  product_id: 6
+)
+
+Specification.create(
+  title: "Batteries",
+  body: "2 AA batteries required. (included)",
+  ord: nil,
+  product_id: 6
+)
+
+Specification.create(
+  title: "Color Name",
+  body: "Black",
+  ord: nil,
+  product_id: 6
+)
+
+Specification.create(
+  title: "Special Features",
+  body: "Display personal media. Share your own home videos, photos and music stored on your phone with the free Roku iOS and Android app, Channel shortcut buttons. Jump straight to favorite channels such as Netflix and M-GO with the push of a button.",
+  ord: nil,
+  product_id: 6
+)
+
 # Question.create(
 #   body:"",
 #   product_id: ,
@@ -1271,7 +1337,7 @@ Image.create(url: "http://ecx.images-amazon.com/images/I/51HU2L9nIRL._SL1000_.jp
 #   user_id: ,
 #   product_id:
 # )
-# # End of [PRODUCT TBD] Seed Data
+# End of Roku Streaming Stick Seed Data
 
 
 
