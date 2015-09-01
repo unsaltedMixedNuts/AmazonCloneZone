@@ -23,7 +23,7 @@ Amazon Clone Zone is a single-page Backbone application inspired by Amazon.com.
 ## Highlights
 - Single page Backbone application built on a RESTful JSON Rails API
 - Custom user authentication system using BCrypt
-- Custom jbuilder templates to ensure only neccessary and appropriate resources are supplied from server to client
+- Custom jbuilder templates to ensure only necessary and appropriate resources are supplied from server to client
 - Replication of server-side Active Record Associations into the client-side (i.e. Backbone).  Done via:
   - Custom Backbone association methods
   - Overridden Backbone `parse` method
@@ -50,7 +50,7 @@ Amazon Clone Zone is a single-page Backbone application inspired by Amazon.com.
 ### Products
 Users may:
 - Browse various products
-- View product information (e.g. descriptiong, specifications etc.)
+- View product information (e.g. description, specifications etc.)
 - Choose quantity of products to place in shopping cart
 - Checkout and create orders
 - View order history
