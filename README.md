@@ -64,7 +64,7 @@ Users have the ability to:
 
 ## Future Todos
 - [x] Add ability for users to ask and answer product questions
-- [ ] Permit third-party authentication through Amazon.com
+- [ ] Permit third-party authentication through the real Amazon.com
 - [ ] Enable users to upload and attach images to customer reviews
 - [ ] Add search capabilities so users can find products by keyword(s)
 - [ ] Make design responsive to different screen sizes via CSS
