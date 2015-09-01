@@ -23,26 +23,29 @@ AmazonCloneZone.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  checkout: function () {
+  checkout: function (callback) {
+    if (!this._requireSignedIn(callback)) { return; }
     AmazonCloneZone.cart.fetch();
     var view = new AmazonCloneZone.Views.Checkout({ model: AmazonCloneZone.cart });
     this._swapView(view);
   },
 
   newUser: function (callback) {
-    if (!this._requireSignedOut()) { return; }
+    if (!this._requireSignedOut(callback)) { return; }
     var model = new AmazonCloneZone.Models.User();
     var view = new AmazonCloneZone.Views.UsersCreate({ model: model, callback: callback });
     this._swapView(view, false, false);
   },
 
-  ordersIndex: function () {
+  ordersIndex: function (callback) {
+    if (!this._requireSignedIn(callback)) { return; }
     AmazonCloneZone.Collections.orders.fetch();
     var view = new AmazonCloneZone.Views.OrdersIndex({ collection: AmazonCloneZone.Collections.orders });
     this._swapView(view);
   },
 
-  orderShow: function (id) {
+  orderShow: function (id, callback) {
+    if (!this._requireSignedIn(callback)) { return; }
     var order = AmazonCloneZone.Collections.orders.getOrFetch(id);
     order.fetch();
     var view = new AmazonCloneZone.Views.OrderShow({ model: order });
