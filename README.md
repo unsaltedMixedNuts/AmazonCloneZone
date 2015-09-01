@@ -45,7 +45,7 @@ Amazon Clone Zone is a single-page Backbone application inspired by Amazon.com.
 - User may add products to their shopping cart even when not signed in
 - Users' shopping carts are persisted to database and indefinitely retain any items placed within them
 - Custom `merge_carts` method to merge shopping carts in instances where users inadvertently create multiple carts between separate sessions
-  - (e.g.) User begins shopping while signed out and then signs into an account that already has a persisted shopping
+  - e.g. User begins shopping while signed out and then signs into an account that already has a persisted shopping
 
 ### Products
 Users may:
