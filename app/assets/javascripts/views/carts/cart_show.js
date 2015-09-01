@@ -7,7 +7,16 @@ AmazonCloneZone.Views.CartShow = Backbone.View.extend({
   },
 
   events: {
-    "submit form": "delete"
+    "submit form": "delete",
+    "click .cart-button": "checkout"
+  },
+
+  checkout: function (event) {
+    if (this.model.items().length === 0) {
+      alert("Your cart is empty.  To checkout, you must have items in your cart.")
+    } else {
+      Backbone.history.navigate("#checkout", { trigger: true })
+    }
   },
 
   delete: function (event) {

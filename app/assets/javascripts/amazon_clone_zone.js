@@ -5,17 +5,17 @@ window.AmazonCloneZone = {
   Routers: {},
   initialize: function () {
     this.currentUser = new AmazonCloneZone.Models.CurrentUser();
-    this.currentUser.fetch();
+    this.currentUser.fetch({ success: function () {
+      AmazonCloneZone.cart = new AmazonCloneZone.Models.Cart();
+      AmazonCloneZone.cart.fetch();
 
-    this.cart = new AmazonCloneZone.Models.Cart();
-    this.cart.fetch();
+      AmazonCloneZone.header = new AmazonCloneZone.Views.Header({ el: "#header" });
+      AmazonCloneZone.footer = new AmazonCloneZone.Views.Footer({ el: "#footer" });
 
-    this.header = new AmazonCloneZone.Views.Header({ el: "#header" });
-    this.footer = new AmazonCloneZone.Views.Footer({ el: "#footer" });
-
-    this.router = new AmazonCloneZone.Routers.Router({
-      $rootEl: $("#main"), $headerEl: $("#header"), $footerEl: $("#footer")
-    });
-    Backbone.history.start();
+      AmazonCloneZone.router = new AmazonCloneZone.Routers.Router({
+        $rootEl: $("#main"), $headerEl: $("#header"), $footerEl: $("#footer")
+      });
+      Backbone.history.start();
+    } });
   }
 };

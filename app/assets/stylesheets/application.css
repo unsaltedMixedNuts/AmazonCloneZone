@@ -878,6 +878,10 @@ footer {
   border-bottom: 1px solid #ccc;
 }
 
+.no-orders-yet-section {
+  text-align: center;
+}
+
 /* ------------OTHER------------ */
 /*amazonCloneZone blue: #146eb4;
 amazonCloneZone orange: #ff9900;*/

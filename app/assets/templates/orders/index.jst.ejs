@@ -1,6 +1,10 @@
 <br>
 <h1 class="callout-1">Your Orders</h1>
 
+<% if (!orders.models.length) {%>
+  <section class="no-orders-yet-section"><%= "No Orders Placed Yet" %></section>
+<% } %>
+
 <% orders.models.reverse().forEach(function (order) { %>
   <section class="order-index-sections">
     <table class="order-table">
