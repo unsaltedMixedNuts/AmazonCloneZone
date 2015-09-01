@@ -2,7 +2,6 @@ AmazonCloneZone.Models.Order = Backbone.Model.extend({
   urlRoot: "/api/orders",
 
   creationDate: function () {
-    // return "creationDate goes here"
     var creationDateInSeconds = parseInt(this.escape("created_at_seconds"));
     var jsDate =  new Date(creationDateInSeconds);
     var displayDate = this.parseIntoDate(jsDate)
@@ -54,7 +53,6 @@ AmazonCloneZone.Models.Order = Backbone.Model.extend({
     hours = hours ? hours : 12; // the hour '0' should be '12'
     minutes = minutes < 10 ? '0'+minutes : minutes;
     var strTime = hours + ':' + minutes + ' ' + ampm;
-    // return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
     return strTime;
   }
 });

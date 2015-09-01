@@ -1,6 +1,5 @@
 json.(cart, :id, :created_at, :updated_at)
 
-
 items ||= nil
 unless items.nil?
   json.items(items) do |item|

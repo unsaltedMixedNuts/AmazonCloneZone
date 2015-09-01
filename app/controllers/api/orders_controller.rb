@@ -4,7 +4,6 @@ class Api::OrdersController < ApplicationController
 
   def index
     @orders = Order.where("user_id = ?", current_user.id)
-    # render json: @orders
     render :index
   end
 
@@ -15,7 +14,6 @@ class Api::OrdersController < ApplicationController
     if @order.save
       cart.empty_cart
       flash[:notice] = "Your Order Has Been Placed Successfully!"
-      # render json: @order
       render :show
     else
       flash[:errors] = @order.errors.full_messages

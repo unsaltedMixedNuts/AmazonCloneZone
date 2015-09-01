@@ -2,22 +2,6 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # if email == email_2 && password == password_2 && @user.save
-    #   sign_in(@user)
-    #
-    #   if session[:url_memory]
-    #     temp_url = session[:url_memory]
-    #     session[:url_memory] = nil
-    #     redirect_to temp_url
-    #   else
-    #     redirect_to root_url
-    #   end
-    # else
-    #   flash.now[:errors] = @user.errors.full_messages
-    #   flash.now[:errors] << "Emails must match" if email != email_2
-    #   flash.now[:errors] << "Passwords must match" if password != password_2
-    #   render :new, layout: "blank"
-    # end
 
     if email == email_2 && password == password_2 && @user.save
       sign_in(@user)
