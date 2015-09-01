@@ -3,19 +3,17 @@
     <section class="logo-top-slot">
       <a href="#"><img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png"></a>
     </section>
-    <a href="#"><span class="links-top-slot generic-link">Shopping Cart</span></a>
+    <a href="#users/new"><span class="links-top-slot generic-link">Sign Up</span></a>
   </section>
 
   <section class="center-slots">
-    <span class="flash-errors">
-      flash[:errors].html_safe<br><br>
-    </span>
+    <span class="flash-errors"></span>
 
-    <form>
+    <form id="sign-in-form">
 
       <h2><strong>Sign In</strong></h2>
       <br>
-      <a href="#" class="generic-link">Don't have an Amazon Clone Zone account?  Sign Up!</a><br><br>
+      <a href="#users/new" class="generic-link">Don't have an Amazon Clone Zone account?  Sign Up!</a><br><br>
       <h3>What is your e-mail and password?</h3>
 
       <label>
@@ -35,7 +33,7 @@
   </section>
 
   <section class="bottom-slots">
-    <form>
+    <form id="guest-sign-in-form">
       <input type="hidden" name="user[email]" value="abc@xyz.com">
       <input type="hidden" name="user[password]" value="top secret">
       <section class="callout-1">Don't feel like filling out a form?</section>

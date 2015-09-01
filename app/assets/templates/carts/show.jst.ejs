@@ -36,7 +36,7 @@
               </section>
             </td>
 
-            <td class="price">$ <%= item.escape("price") %></td>
+            <td class="price">$ <%= item.price() %></td>
             <td class="qty"><%= item.escape("quantity") %></td>
           </tr>
         <% }) %>

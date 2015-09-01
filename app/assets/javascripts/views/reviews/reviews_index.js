@@ -49,7 +49,7 @@ AmazonCloneZone.Views.ReviewsIndex = Backbone.View.extend({
     newReview.save([], {
       success: function () {
         view.product.reviews().add(newReview);
-        window.scrollTo(0,document.body.scrollHeight);
+        // window.scrollTo(0,document.body.scrollHeight);
         $("#flash-errors-for-reviews").html("Your review has been successfully posted and saved above.");
       },
 

@@ -554,12 +554,12 @@ footer {
 }
 
 .checkout {
-  /*background: teal;*/
+  font-weight: bold;
   float: right;
   width: 200px;
   padding-left: 2px;
   margin: 5px;
-  /*height: 400px;*/
+  text-align: center;
 }
 
 .items {

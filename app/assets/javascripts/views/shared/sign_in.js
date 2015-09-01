@@ -6,7 +6,8 @@ AmazonCloneZone.Views.SignIn = Backbone.View.extend({
   },
 
   events: {
-    "submit form": "submit"
+    "submit #sign-in-form": "submit",
+    "submit #guest-sign-in-form": "submit"
   },
 
   template: JST['shared/sign_in'],
@@ -21,12 +22,13 @@ AmazonCloneZone.Views.SignIn = Backbone.View.extend({
     event.preventDefault();
     var $form = $(event.currentTarget);
     var formData = $form.serializeJSON().user;
+    var view = this;
 
     AmazonCloneZone.currentUser.signIn({
       email: formData.email,
       password: formData.password,
       error: function(){
-        alert("Wrong username/password combination. Please try again.");
+        view.$(".flash-errors").html("Invalid username and password combination.  Please try again.");
       }
     });
   },

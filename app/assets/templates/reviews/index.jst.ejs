@@ -3,30 +3,6 @@
   <a href="#product-reviews"><%= product.reviews().length %> customer reviews</a><br>
   Average Rating: <%= product.averageStars() %> / 5.0
 
-  <section class="review-form-section">
-    <span class="review-header-two">Write a customer review</span><br><br>
-    <form>
-      <section class="stars-span">
-        <label>
-          Rating / Stars:
-          <select name="review[stars]">
-            <option value="0"></option>
-            <% for (var stars = 1; stars < 6; stars++) { %>
-              <option value="<%= stars %>"><%= stars %></option>
-            <% }; %>
-          </select>
-        </label>
-      </section>
-      <br>
-      <input type="hidden" name="review[product_id]" value="<%= product.get("id") %>">
-      <input type="hidden" name="review[user_name]" value="<%= AmazonCloneZone.currentUser.name() %>">
-      <input class="ask-question-input" type="text" name="review[title]" placeholder="Insert a title for your review here.">
-      <br><br>
-      <input id="review-input" class="answer-question-input" type="text" name="review[body]" placeholder="Write your review here.">
-      <button class="answer-question-button">Submit Review</button>
-    </form>
-  </section>
-
   <ul class="review-ul">
     <% product.reviews().each(function (li) { %>
       <li class="review-li">

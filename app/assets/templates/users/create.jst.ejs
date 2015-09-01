@@ -3,15 +3,13 @@
     <section class="logo-top-slot">
       <a href="#"><img class="logo" src="/assets/amazon_clone_zone_logo_vFOOTER.png"></a>
     </section>
-    <a href="#guest-sign-in-button"><span class="links-top-slot generic-link">Sign In As A Guest</span></a>
+    <span id="guest-sign-in-link" class="links-top-slot generic-link">Sign In As A Guest</span>
   </section>
 
   <section class="center-slots">
-    <span class="flash-errors">
-      flash[:errors].join("<br>").html_safe
-    </span>
+    <span class="flash-errors"></span>
 
-    <form>
+    <form id="sign-up-form">
 
       <h2><strong>Registration</strong></h2><br>
       <h3>New to AmazonCloneZone.com?</h3><h3>Register Below or
@@ -61,12 +59,12 @@
   </section>
 
   <section class="bottom-slots">
-    <form>
+    <form id="guest-sign-in-form">
       <input type="hidden" name="user[email]" value="abc@xyz.com">
       <input type="hidden" name="user[password]" value="top secret">
       <section class="callout-1">Don't feel like filling out a form?</section>
       <!-- <section class="callout-2">Sign in as a guest user</section> -->
-      <button class="guest-sign-in-button" id="guest-sign-in-button">Sign In As A Guest</button>
+      <button class="guest-sign-in-button">Sign In As A Guest</button>
     </form>
   </section>
 </section>

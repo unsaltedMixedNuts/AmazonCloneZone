@@ -1,13 +1,15 @@
 AmazonCloneZone.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    this.$headerEl = options.$headerEl;
+    this.$footerEl = options.$footerEl;
   },
 
   routes: {
     "":"productsIndex",
     "products/:id": "productsShow",
     "session/new": "signIn",
-    "users/new": "new",
+    "users/new": "newUser",
     "cart": "cartShow",
     "checkout": "checkout",
     "orders": "ordersIndex",
@@ -27,11 +29,11 @@ AmazonCloneZone.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  new: function () {
+  newUser: function (callback) {
     if (!this._requireSignedOut()) { return; }
     var model = new AmazonCloneZone.Models.User();
-    var view = new AmazonCloneZone.Views.UsersCreate({ model: model });
-    this._swapView(view);
+    var view = new AmazonCloneZone.Views.UsersCreate({ model: model, callback: callback });
+    this._swapView(view, false, false);
   },
 
   ordersIndex: function () {
@@ -65,7 +67,7 @@ AmazonCloneZone.Routers.Router = Backbone.Router.extend({
     var signInView = new AmazonCloneZone.Views.SignIn({
       callback: callback
     });
-    this._swapView(signInView);
+    this._swapView(signInView, false, false);
   },
 
   _requireSignedIn: function(callback){
@@ -92,9 +94,32 @@ AmazonCloneZone.Routers.Router = Backbone.Router.extend({
     Backbone.history.navigate("", { trigger: true });
   },
 
-  _swapView: function (view) {
+  _swapView: function (view, headerValue, footerValue) {
     this.currentView && this.currentView.remove();
     this.currentView = view;
     this.$rootEl.html(view.render().$el);
+    this._inputHeaderAndFooter(headerValue, footerValue)
+  },
+
+  _inputHeaderAndFooter: function (headerValue, footerValue) {
+    if (headerValue === undefined) {
+      headerValue = true;
+    }
+
+    if (footerValue === undefined) {
+      footerValue = true;
+    }
+
+    if (headerValue) {
+      AmazonCloneZone.header.render();
+    } else {
+      this.$headerEl.empty();
+    }
+
+    if (footerValue) {
+      AmazonCloneZone.footer.render();
+    } else {
+      this.$footerEl.empty();
+    }
   }
 });
