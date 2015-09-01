@@ -40,7 +40,7 @@ AmazonCloneZone.Views.ReviewsIndex = Backbone.View.extend({
       $message.append("Please submit your review after fixing the above issues.")
       $("#flash-errors-for-reviews").html($message);
       this.reviewError = false;
-      window.scrollTo(0,document.body.scrollHeight);
+      // window.scrollTo(0,document.body.scrollHeight);
       return;
     }
 
@@ -54,7 +54,7 @@ AmazonCloneZone.Views.ReviewsIndex = Backbone.View.extend({
       },
 
       error: function () {
-        $("#flash-errors-for-reviews").html("Error: review not saved.");
+        $("#flash-errors-for-reviews").html("Please <a href='#session/new'>sign in</a> to ask a question.");
       }
     });
   }

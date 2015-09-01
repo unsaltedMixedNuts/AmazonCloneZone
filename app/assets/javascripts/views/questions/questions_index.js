@@ -49,7 +49,7 @@ AmazonCloneZone.Views.QuestionsIndex = Backbone.View.extend({
     var params = $(event.currentTarget).serializeJSON()["question"];
 
     if (params.body === "") {
-      $(".flash-errors").html("Please enter a question.");
+      $("#flash-errors-for-questions").html("Please enter a question.");
       return;
     }
 
@@ -58,11 +58,11 @@ AmazonCloneZone.Views.QuestionsIndex = Backbone.View.extend({
     newQuestion.save([], {
       success: function () {
         view.product.questions().unshift(newQuestion);
-        $(".flash-errors").html("Your question has been posted for others to answer.");
+        $("#flash-errors-for-questions").html("Your question has been posted for others to answer.");
       },
 
       error: function () {
-        $(".flash-errors").html("Please <a href='#session/new'>sign in</a> to ask a question.");
+        $("#flash-errors-for-questions").html("Please <a href='#session/new'>sign in</a> to ask a question.");
       }
     });
   },
