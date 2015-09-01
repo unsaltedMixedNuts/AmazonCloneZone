@@ -50,8 +50,9 @@ Amazon Clone Zone is a single-page Backbone application inspired by Amazon.com.
 ### Products
 Users may:
 - Browse various products
-- View product information (e.g. description, specifications etc.)
+- View product information (e.g. description, specifications, etc.)
 - Choose quantity of products to place in shopping cart
+- Destroy (i.e. delete) items from shopping cart
 - Checkout and create orders
 - View order history
 
