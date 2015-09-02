@@ -33,7 +33,7 @@ Amazon Clone Zone is a single-page Backbone application inspired by Amazon.com.
 ## Features
 
 ### User Authentication and Authorization
-- Custom user authentication via BCrypt
+- Custom user authentication via BCrypt overrides `User#password=` method to store secret hash in database in lieu of plain text
 - Users may browse most of AmazonCloneZone.com and its features without signing in
 - User authentication enforced for various actions:
   - Users are not permitted to checkout items or place orders without identifying themselves via authentication
